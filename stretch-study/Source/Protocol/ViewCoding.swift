@@ -7,4 +7,19 @@
 
 import Foundation
 
-protocol ViewCoding {}
+protocol ViewCoding {
+    func addViewsInHierarchy()
+    func setupConstraints()
+    func setupAditionalConfiguration()
+    func buildLayout()
+}
+
+extension ViewCoding {
+    func setupAditionalConfiguration() {}
+    
+    func buildLayout() {
+        addViewsInHierarchy()
+        setupConstraints()
+        setupAditionalConfiguration()
+    }
+}

@@ -7,4 +7,8 @@
 
 import Foundation
 
-class TextAnalysisService: TextAnalysisServicing {}
+class TextAnalysisService: TextAnalysisServicing {
+    func analyseTextToxicity(text: String, completion: @escaping (Result<PerspectiveResponse, Error>) -> Void) {
+        
+    }
+}

@@ -25,7 +25,9 @@ extension Factory {
 
 extension Factory {
     private func makeTextAnalysisVC() -> UIViewController {
-        let viewController = TextAnalysisViewController()
+        let service = TextAnalysisService()
+        let presenter = TextAnalysisPresenter(service: service)
+        let viewController = TextAnalysisViewController(presenter: presenter)
         return viewController
     }
 }

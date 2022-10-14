@@ -17,12 +17,13 @@
 		00507AD328F85AB400CA12CB /* TextAnalysisPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AC328F85AB400CA12CB /* TextAnalysisPresenting.swift */; };
 		00507AD428F85AB400CA12CB /* TextAnalysisPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AC428F85AB400CA12CB /* TextAnalysisPresenter.swift */; };
 		00507AD528F85AB400CA12CB /* ViewCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AC628F85AB400CA12CB /* ViewCoding.swift */; };
-		00507AD628F85AB400CA12CB /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AC828F85AB400CA12CB /* Text.swift */; };
+		00507AD628F85AB400CA12CB /* PerspectiveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AC828F85AB400CA12CB /* PerspectiveAPI.swift */; };
 		00507AD728F85AB400CA12CB /* TextAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507ACB28F85AB400CA12CB /* TextAnalysisView.swift */; };
 		00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507ACC28F85AB400CA12CB /* TextAnalysisViewController.swift */; };
 		00507AD928F85AB400CA12CB /* TextAnalysisServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507ACF28F85AB400CA12CB /* TextAnalysisServicing.swift */; };
 		00507ADA28F85AB400CA12CB /* TextAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AD028F85AB400CA12CB /* TextAnalysisService.swift */; };
 		00507ADB28F85AB400CA12CB /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AD228F85AB400CA12CB /* Factory.swift */; };
+		00507ADE28F989E300CA12CB /* SentimAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507ADD28F989E300CA12CB /* SentimAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +58,13 @@
 		00507AC328F85AB400CA12CB /* TextAnalysisPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenting.swift; sourceTree = "<group>"; };
 		00507AC428F85AB400CA12CB /* TextAnalysisPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenter.swift; sourceTree = "<group>"; };
 		00507AC628F85AB400CA12CB /* ViewCoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCoding.swift; sourceTree = "<group>"; };
-		00507AC828F85AB400CA12CB /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		00507AC828F85AB400CA12CB /* PerspectiveAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveAPI.swift; sourceTree = "<group>"; };
 		00507ACB28F85AB400CA12CB /* TextAnalysisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisView.swift; sourceTree = "<group>"; };
 		00507ACC28F85AB400CA12CB /* TextAnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisViewController.swift; sourceTree = "<group>"; };
 		00507ACF28F85AB400CA12CB /* TextAnalysisServicing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisServicing.swift; sourceTree = "<group>"; };
 		00507AD028F85AB400CA12CB /* TextAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisService.swift; sourceTree = "<group>"; };
 		00507AD228F85AB400CA12CB /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		00507ADD28F989E300CA12CB /* SentimAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,12 +161,12 @@
 		00507AC028F85AB400CA12CB /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				00507AC128F85AB400CA12CB /* Presenter */,
 				00507AC528F85AB400CA12CB /* Protocol */,
-				00507AC728F85AB400CA12CB /* Model */,
-				00507AC928F85AB400CA12CB /* View */,
 				00507ACD28F85AB400CA12CB /* Service */,
 				00507AD128F85AB400CA12CB /* Factory */,
+				00507AC128F85AB400CA12CB /* Presenter */,
+				00507AC728F85AB400CA12CB /* Model */,
+				00507AC928F85AB400CA12CB /* View */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -197,7 +199,8 @@
 		00507AC728F85AB400CA12CB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				00507AC828F85AB400CA12CB /* Text.swift */,
+				00507AC828F85AB400CA12CB /* PerspectiveAPI.swift */,
+				00507ADD28F989E300CA12CB /* SentimAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -402,7 +405,8 @@
 				00507AD728F85AB400CA12CB /* TextAnalysisView.swift in Sources */,
 				00507AD528F85AB400CA12CB /* ViewCoding.swift in Sources */,
 				00507A8F28F8590B00CA12CB /* SceneDelegate.swift in Sources */,
-				00507AD628F85AB400CA12CB /* Text.swift in Sources */,
+				00507AD628F85AB400CA12CB /* PerspectiveAPI.swift in Sources */,
+				00507ADE28F989E300CA12CB /* SentimAPI.swift in Sources */,
 				00507AD928F85AB400CA12CB /* TextAnalysisServicing.swift in Sources */,
 				00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */,
 				00507AD428F85AB400CA12CB /* TextAnalysisPresenter.swift in Sources */,

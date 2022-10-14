@@ -7,4 +7,10 @@
 
 import Foundation
 
-class TextAnalysisPresenter: TextAnalysisPresenting {}
+class TextAnalysisPresenter: TextAnalysisPresenting {
+    private let service: TextAnalysisServicing!
+    
+    init(service: TextAnalysisServicing) {
+        self.service = service
+    }
+}
