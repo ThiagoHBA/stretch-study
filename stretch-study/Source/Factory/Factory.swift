@@ -28,6 +28,8 @@ extension Factory {
         let service = TextAnalysisService()
         let presenter = TextAnalysisPresenter(service: service)
         let viewController = TextAnalysisViewController(presenter: presenter)
+        
+        presenter.delegate = viewController
         return viewController
     }
 }

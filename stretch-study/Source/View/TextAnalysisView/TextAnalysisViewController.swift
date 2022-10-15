@@ -31,3 +31,11 @@ class TextAnalysisViewController: UIViewController {
         super.viewDidLoad()
     }
 }
+
+extension TextAnalysisViewController: TextAnalysisPresenterDelegate {
+    func startLoading() { }
+    
+    func dismissLoading() { }
+    
+    func showError(title: String, message: String) { }
+}

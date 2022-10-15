@@ -9,6 +9,7 @@ import Foundation
 
 class TextAnalysisPresenter: TextAnalysisPresenting {
     private let service: TextAnalysisServicing!
+    weak var delegate: TextAnalysisPresenterDelegate?
     
     init(service: TextAnalysisServicing) {
         self.service = service
