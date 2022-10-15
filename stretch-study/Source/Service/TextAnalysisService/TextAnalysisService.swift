@@ -12,7 +12,10 @@ class TextAnalysisService: TextAnalysisServicing {
         
     }
     
-    func analyseTextToxicity(text: String, completion: @escaping (Result<PerspectiveResponse, Error>) -> Void) {
+    func analyseTextToxicity(requestData: PerspectiveRequest, completion: @escaping (Result<PerspectiveResponse, Error>) -> Void) {
+        
+        guard let encodedData = try? JSONEncoder().encode(requestData) else { return }
+        
         guard let url = URL(
             string: "\(Constants.PerspectiveApiBaseURL)key=\(Enviroment.perspectiveApiKey)"
         ) else { return }
@@ -20,22 +23,7 @@ class TextAnalysisService: TextAnalysisServicing {
         var urlRequest = URLRequest(url: url)
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpMethod = "POST"
-        urlRequest.httpBody =
-        """
-            {
-                \"comment\": {
-                    \"text\": \"Hello! i`m a text! Your idiot!\"
-                },
-                \"requestedAttributes\": {
-                    \"TOXICITY\": {},
-                    \"SEVERE_TOXICITY\": {},
-                    \"IDENTITY_ATTACK\": {},
-                    \"INSULT\": {},
-                    \"PROFANITY\": {},
-                    \"THREAT\": {}
-                }
-            }
-        """.data(using: .utf8)
+        urlRequest.httpBody = encodedData
         
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             guard let data = data, error == nil else {
