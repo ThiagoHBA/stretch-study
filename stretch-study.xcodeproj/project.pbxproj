@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00297E4828FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297E4728FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift */; };
+		00297E4A28FB0D4D005BE371 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297E4928FB0D4D005BE371 /* Constants.swift */; };
 		00507A8D28F8590B00CA12CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507A8C28F8590B00CA12CB /* AppDelegate.swift */; };
 		00507A8F28F8590B00CA12CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507A8E28F8590B00CA12CB /* SceneDelegate.swift */; };
 		00507A9628F8590C00CA12CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00507A9528F8590C00CA12CB /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		00297E4728FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterDelegate.swift; sourceTree = "<group>"; };
+		00297E4928FB0D4D005BE371 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		00507A8928F8590B00CA12CB /* stretch-study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stretch-study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00507A8C28F8590B00CA12CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		00507A8E28F8590B00CA12CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				00507ACE28F85AB400CA12CB /* TextAnalysisService */,
+				00297E4928FB0D4D005BE371 /* Constants.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				00507ADE28F989E300CA12CB /* SentimAPI.swift in Sources */,
 				00297E4828FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift in Sources */,
 				00507AD928F85AB400CA12CB /* TextAnalysisServicing.swift in Sources */,
+				00297E4A28FB0D4D005BE371 /* Constants.swift in Sources */,
 				00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */,
 				00507AD428F85AB400CA12CB /* TextAnalysisPresenter.swift in Sources */,
 			);
