@@ -14,17 +14,21 @@ struct PerspectiveResponse: Codable {
 
 // MARK: - AttributeScores
 struct AttributeScores: Codable {
-    let severeToxicityExperimental, toxicity: SevereToxicityExperimental
+    let severeToxicity, identityAttack, profanity, toxicity: IdentityAttack
+    let threat, insult: IdentityAttack
 
     enum CodingKeys: String, CodingKey {
-        case severeToxicityExperimental = "SEVERE_TOXICITY_EXPERIMENTAL"
+        case severeToxicity = "SEVERE_TOXICITY"
+        case identityAttack = "IDENTITY_ATTACK"
+        case profanity = "PROFANITY"
         case toxicity = "TOXICITY"
+        case threat = "THREAT"
+        case insult = "INSULT"
     }
 }
 
-// MARK: - SevereToxicityExperimental
-
-struct SevereToxicityExperimental: Codable {
+// MARK: - IdentityAttack
+struct IdentityAttack: Codable {
     let spanScores: [SpanScore]
     let summaryScore: Score
 }
@@ -38,5 +42,9 @@ struct SpanScore: Codable {
 // MARK: - Score
 struct Score: Codable {
     let value: Double
-    let type: String
+    let type: TypeEnum
+}
+
+enum TypeEnum: String, Codable {
+    case probability = "PROBABILITY"
 }
