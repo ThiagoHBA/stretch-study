@@ -23,7 +23,7 @@ class TextAnalysisViewController: UIViewController {
     // MARK: - Life Cicle
     override func loadView() {
         super.loadView()
-        self.textAnalysisView = TextAnalysisView(frame: UIScreen.main.bounds)
+        self.textAnalysisView = TextAnalysisView(frame: UIScreen.main.bounds, presenter: presenter)
         self.view = self.textAnalysisView
     }
     

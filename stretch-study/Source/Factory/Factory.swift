@@ -29,17 +29,6 @@ extension Factory {
         let presenter = TextAnalysisPresenter(service: service)
         let viewController = TextAnalysisViewController(presenter: presenter)
         
-        let dataToRequest = PerspectiveRequest(comment: Comment(text: "Hello! im a text"))
-        
-        service.analyseTextToxicity(requestData: dataToRequest) { result in
-            switch result {
-                case .success(let response):
-                    print(response.attributeScores)
-                case .failure(let error):
-                    print(error)
-            }
-        }
-        
         presenter.delegate = viewController
         return viewController
     }
