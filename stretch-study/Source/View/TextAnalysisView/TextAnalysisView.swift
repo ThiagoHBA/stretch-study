@@ -40,9 +40,7 @@ class TextAnalysisView: UIView {
     private lazy var sendToAnalysisButton: UIButton = {
         let button = UIButton()
         button.setTitle("Analyse", for: .normal)
-        button.tintColor = .black
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 8
+        button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(sendTextToAnalysis), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
