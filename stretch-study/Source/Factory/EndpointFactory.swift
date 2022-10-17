@@ -13,7 +13,7 @@ enum EndpointFactory {
 }
 
 extension EndpointFactory {
-    func make(body: Data = Data()) -> URLRequest {
+    func make(with body: Data = Data()) -> URLRequest {
         switch self {
             case .perspective:
                 return makePerspectiveEndpoint(body)
