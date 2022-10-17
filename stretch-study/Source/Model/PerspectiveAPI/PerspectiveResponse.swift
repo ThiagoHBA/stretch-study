@@ -9,7 +9,8 @@ import Foundation
 // MARK: - PerspectiveResponse
 struct PerspectiveResponse: Codable {
     let attributeScores: AttributeScores
-    let languages, detectedLanguages: [String]
+    let languages: [String]
+    let detectedLanguages: [String]
 }
 
 // MARK: - AttributeScores
