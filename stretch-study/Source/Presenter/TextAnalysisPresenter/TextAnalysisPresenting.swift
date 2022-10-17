@@ -7,4 +7,6 @@
 
 import Foundation
 
-protocol TextAnalysisPresenting {}
+protocol TextAnalysisPresenting {
+    func analyseText(_ text: String)
+}

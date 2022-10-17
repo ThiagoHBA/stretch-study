@@ -29,15 +29,6 @@ extension Factory {
         let presenter = TextAnalysisPresenter(service: service)
         let viewController = TextAnalysisViewController(presenter: presenter)
         
-        service.analyseTextToxicity(text: "test") { result in
-            switch result {
-                case .success(let response):
-                    print(response.attributeScores)
-                case .failure(let error):
-                    print(error)
-            }
-        }
-        
         presenter.delegate = viewController
         return viewController
     }
