@@ -16,9 +16,29 @@ class TextAnalysisService: TextAnalysisServicing {
      
     func analyseTextSentiment(text: String, completion: @escaping (Result<SentimResponse, Error>) -> Void) { }
     
-    func analyseTextToxicity(requestData: PerspectiveRequest, completion: @escaping (Result<PerspectiveResponse, Error>) -> Void) {
-        guard let encodedData = try? JSONEncoder().encode(requestData) else { return }
+    func analyseTextToxicity(
+        requestData: PerspectiveRequest,
+        completion: @escaping (Result<PerspectiveResponse, Error>) -> Void
+    ) {
+        guard let encodedData = try? JSONEncoder().encode(requestData) else {
+            completion(.failure(MapperError.encodingError))
+            return
+        }
         let endpoint = EndpointFactory.perspective.make(with: encodedData)
-        client.fetch(endpoint: endpoint, completion: completion)
+        
+        client.fetch(endpoint: endpoint) { result in
+            switch result {
+                case .success(let data):
+                    do {
+                        let decodedJson = try JSONDecoder().decode(PerspectiveResponse.self, from: data)
+                        completion(.success(decodedJson))
+                    } catch {
+                        completion(.failure(MapperError.decodingError))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+            }
+        }
+        
     }
 }

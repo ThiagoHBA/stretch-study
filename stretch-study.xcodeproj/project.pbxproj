@@ -32,6 +32,7 @@
 		00905F8328FD982B00FD75B4 /* EndpointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8228FD982B00FD75B4 /* EndpointFactory.swift */; };
 		00905F8528FD99EE00FD75B4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8428FD99EE00FD75B4 /* NetworkService.swift */; };
 		00905F8828FD9F4900FD75B4 /* NetworkServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */; };
+		00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8928FDAFBB00FD75B4 /* MapperError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		00905F8228FD982B00FD75B4 /* EndpointFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointFactory.swift; sourceTree = "<group>"; };
 		00905F8428FD99EE00FD75B4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicing.swift; sourceTree = "<group>"; };
+		00905F8928FDAFBB00FD75B4 /* MapperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				00297E4F28FB1125005BE371 /* HttpError.swift */,
+				00905F8928FDAFBB00FD75B4 /* MapperError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				00507AD928F85AB400CA12CB /* TextAnalysisServicing.swift in Sources */,
 				00905F8128FD8C3700FD75B4 /* URLRequest.swift in Sources */,
 				00905F7628FB353C00FD75B4 /* PerspectiveRequest.swift in Sources */,
+				00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */,
 				00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */,
 				00507AD428F85AB400CA12CB /* TextAnalysisPresenter.swift in Sources */,
 			);

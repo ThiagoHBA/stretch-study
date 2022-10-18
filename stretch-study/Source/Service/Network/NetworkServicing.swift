@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NetworkServicing {
-    func fetch<T: Decodable>(endpoint: URLRequest, completion: @escaping (Result<T, Error>) -> Void)
+    func fetch(endpoint: URLRequest, completion: @escaping (Result<Data, HTTPError>) -> Void)
 }
