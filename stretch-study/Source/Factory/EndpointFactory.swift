@@ -18,7 +18,7 @@ extension EndpointFactory {
             case .perspective:
                 return makePerspectiveEndpoint(body)
             case .sentim:
-                return URLRequest(url: URL(string: "")!)
+                return makeSentimEndPoint(body)
         }
     }
 }
@@ -35,4 +35,16 @@ extension EndpointFactory {
         
         return URLRequest.postUrlRequest(url: url, body: body)
     }
+    
+    private func makeSentimEndPoint(_ body: Data) -> URLRequest {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "sentim-api.herokuapp.com"
+        components.path = "/api/v1/"
+
+        guard let url = components.url else { preconditionFailure( "Invalid URL components: \(components)") }
+        
+        return URLRequest.postUrlRequest(url: url, body: body)
+    }
+    
 }

@@ -10,5 +10,6 @@ import Foundation
 protocol TextAnalysisPresenterDelegate: AnyObject {
     func startLoading()
     func dismissLoading()
+    func displayData(_ entity: TextAnalysisViewEntity)
     func showError(title: String, message: String)
 }
