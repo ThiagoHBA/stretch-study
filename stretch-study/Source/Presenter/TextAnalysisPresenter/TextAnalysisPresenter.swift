@@ -18,15 +18,14 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
     
     func analyseText(_ text: String) {
         let dataToRequest = PerspectiveRequest(comment: Comment(text: text))
-        
         delegate?.startLoading()
         service.analyseTextToxicity(requestData: dataToRequest) { [weak self] result in
             self?.delegate?.dismissLoading()
             switch result {
                 case .success(let response):
-                    print(response.attributeScores)
+                    print(response)
                 case .failure(let error):
-                    print(error)
+                    self?.delegate?.showError(title: "Error", message: error.localizedDescription)
             }
         }
     }

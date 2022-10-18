@@ -8,11 +8,11 @@
 import Foundation
 import UIKit
 
-enum Factory {
+enum ViewControllerFactory {
     case textAnalysisVC
 }
 
-extension Factory {
+extension ViewControllerFactory {
     func make() -> UIViewController {
         switch self {
             case .textAnalysisVC:
@@ -23,7 +23,7 @@ extension Factory {
 
 // MARK: - Implementation
 
-extension Factory {
+extension ViewControllerFactory {
     private func makeTextAnalysisVC() -> UIViewController {
         let service = TextAnalysisService()
         let presenter = TextAnalysisPresenter(service: service)

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		00297E4828FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297E4728FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift */; };
-		00297E4A28FB0D4D005BE371 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297E4928FB0D4D005BE371 /* Constants.swift */; };
 		00297E4D28FB0F7B005BE371 /* Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297E4C28FB0F7B005BE371 /* Enviroment.swift */; };
 		00297E5028FB1125005BE371 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00297E4F28FB1125005BE371 /* HttpError.swift */; };
 		00507A8D28F8590B00CA12CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507A8C28F8590B00CA12CB /* AppDelegate.swift */; };
@@ -26,9 +25,14 @@
 		00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507ACC28F85AB400CA12CB /* TextAnalysisViewController.swift */; };
 		00507AD928F85AB400CA12CB /* TextAnalysisServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507ACF28F85AB400CA12CB /* TextAnalysisServicing.swift */; };
 		00507ADA28F85AB400CA12CB /* TextAnalysisService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AD028F85AB400CA12CB /* TextAnalysisService.swift */; };
-		00507ADB28F85AB400CA12CB /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AD228F85AB400CA12CB /* Factory.swift */; };
+		00507ADB28F85AB400CA12CB /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AD228F85AB400CA12CB /* ViewControllerFactory.swift */; };
 		00507ADE28F989E300CA12CB /* SentimResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507ADD28F989E300CA12CB /* SentimResponse.swift */; };
 		00905F7628FB353C00FD75B4 /* PerspectiveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F7528FB353C00FD75B4 /* PerspectiveRequest.swift */; };
+		00905F8128FD8C3700FD75B4 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8028FD8C3700FD75B4 /* URLRequest.swift */; };
+		00905F8328FD982B00FD75B4 /* EndpointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8228FD982B00FD75B4 /* EndpointFactory.swift */; };
+		00905F8528FD99EE00FD75B4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8428FD99EE00FD75B4 /* NetworkService.swift */; };
+		00905F8828FD9F4900FD75B4 /* NetworkServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */; };
+		00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8928FDAFBB00FD75B4 /* MapperError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		00297E4728FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterDelegate.swift; sourceTree = "<group>"; };
-		00297E4928FB0D4D005BE371 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		00297E4C28FB0F7B005BE371 /* Enviroment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enviroment.swift; sourceTree = "<group>"; };
 		00297E4F28FB1125005BE371 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
 		00507A8928F8590B00CA12CB /* stretch-study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stretch-study.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,10 +75,15 @@
 		00507ACC28F85AB400CA12CB /* TextAnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisViewController.swift; sourceTree = "<group>"; };
 		00507ACF28F85AB400CA12CB /* TextAnalysisServicing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisServicing.swift; sourceTree = "<group>"; };
 		00507AD028F85AB400CA12CB /* TextAnalysisService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnalysisService.swift; sourceTree = "<group>"; };
-		00507AD228F85AB400CA12CB /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		00507AD228F85AB400CA12CB /* ViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		00507ADD28F989E300CA12CB /* SentimResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimResponse.swift; sourceTree = "<group>"; };
 		00905F7428FB25D300FD75B4 /* Configurations.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configurations.xcconfig; sourceTree = "<group>"; };
 		00905F7528FB353C00FD75B4 /* PerspectiveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveRequest.swift; sourceTree = "<group>"; };
+		00905F8028FD8C3700FD75B4 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		00905F8228FD982B00FD75B4 /* EndpointFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointFactory.swift; sourceTree = "<group>"; };
+		00905F8428FD99EE00FD75B4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicing.swift; sourceTree = "<group>"; };
+		00905F8928FDAFBB00FD75B4 /* MapperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				00297E4F28FB1125005BE371 /* HttpError.swift */,
+				00905F8928FDAFBB00FD75B4 /* MapperError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 		00507AC028F85AB400CA12CB /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				00905F7928FD7D2600FD75B4 /* Extensions */,
 				00297E4E28FB1117005BE371 /* Error */,
 				00507AC528F85AB400CA12CB /* Protocol */,
 				00507ACD28F85AB400CA12CB /* Service */,
@@ -247,8 +257,8 @@
 		00507ACD28F85AB400CA12CB /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				00905F8628FD9F3A00FD75B4 /* Network */,
 				00507ACE28F85AB400CA12CB /* TextAnalysisService */,
-				00297E4928FB0D4D005BE371 /* Constants.swift */,
 				00297E4C28FB0F7B005BE371 /* Enviroment.swift */,
 			);
 			path = Service;
@@ -266,7 +276,8 @@
 		00507AD128F85AB400CA12CB /* Factory */ = {
 			isa = PBXGroup;
 			children = (
-				00507AD228F85AB400CA12CB /* Factory.swift */,
+				00507AD228F85AB400CA12CB /* ViewControllerFactory.swift */,
+				00905F8228FD982B00FD75B4 /* EndpointFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -286,6 +297,23 @@
 				00507ADD28F989E300CA12CB /* SentimResponse.swift */,
 			);
 			path = SentimAPI;
+			sourceTree = "<group>";
+		};
+		00905F7928FD7D2600FD75B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00905F8028FD8C3700FD75B4 /* URLRequest.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		00905F8628FD9F3A00FD75B4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				00905F8428FD99EE00FD75B4 /* NetworkService.swift */,
+				00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -442,18 +470,22 @@
 				00507ADA28F85AB400CA12CB /* TextAnalysisService.swift in Sources */,
 				00507AD328F85AB400CA12CB /* TextAnalysisPresenting.swift in Sources */,
 				00297E4D28FB0F7B005BE371 /* Enviroment.swift in Sources */,
-				00507ADB28F85AB400CA12CB /* Factory.swift in Sources */,
+				00507ADB28F85AB400CA12CB /* ViewControllerFactory.swift in Sources */,
 				00297E5028FB1125005BE371 /* HttpError.swift in Sources */,
 				00507A8D28F8590B00CA12CB /* AppDelegate.swift in Sources */,
 				00507AD728F85AB400CA12CB /* TextAnalysisView.swift in Sources */,
 				00507AD528F85AB400CA12CB /* ViewCoding.swift in Sources */,
 				00507A8F28F8590B00CA12CB /* SceneDelegate.swift in Sources */,
 				00507AD628F85AB400CA12CB /* PerspectiveResponse.swift in Sources */,
+				00905F8528FD99EE00FD75B4 /* NetworkService.swift in Sources */,
+				00905F8328FD982B00FD75B4 /* EndpointFactory.swift in Sources */,
 				00507ADE28F989E300CA12CB /* SentimResponse.swift in Sources */,
+				00905F8828FD9F4900FD75B4 /* NetworkServicing.swift in Sources */,
 				00297E4828FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift in Sources */,
 				00507AD928F85AB400CA12CB /* TextAnalysisServicing.swift in Sources */,
+				00905F8128FD8C3700FD75B4 /* URLRequest.swift in Sources */,
 				00905F7628FB353C00FD75B4 /* PerspectiveRequest.swift in Sources */,
-				00297E4A28FB0D4D005BE371 /* Constants.swift in Sources */,
+				00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */,
 				00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */,
 				00507AD428F85AB400CA12CB /* TextAnalysisPresenter.swift in Sources */,
 			);
