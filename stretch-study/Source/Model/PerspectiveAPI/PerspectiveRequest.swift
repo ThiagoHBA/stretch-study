@@ -9,13 +9,8 @@ import Foundation
 
 // MARK: - PerspectiveRequest
 struct PerspectiveRequest: Encodable {
-    let comment: Comment
+    let comment: Stretch
     let requestedAttributes = RequestedAttributes()
-}
-
-// MARK: - Comment
-struct Comment: Codable {
-    let text: String
 }
 
 // MARK: - RequestedAttributes

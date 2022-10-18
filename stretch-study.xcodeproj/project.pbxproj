@@ -33,6 +33,8 @@
 		00905F8528FD99EE00FD75B4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8428FD99EE00FD75B4 /* NetworkService.swift */; };
 		00905F8828FD9F4900FD75B4 /* NetworkServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */; };
 		00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8928FDAFBB00FD75B4 /* MapperError.swift */; };
+		00F93E7E28FED45C0014767D /* Stretch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E7D28FED45C0014767D /* Stretch.swift */; };
+		00F93E8028FEE5990014767D /* TextAnalysisViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E7F28FEE5990014767D /* TextAnalysisViewEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		00905F8428FD99EE00FD75B4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicing.swift; sourceTree = "<group>"; };
 		00905F8928FDAFBB00FD75B4 /* MapperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperError.swift; sourceTree = "<group>"; };
+		00F93E7D28FED45C0014767D /* Stretch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stretch.swift; sourceTree = "<group>"; };
+		00F93E7F28FEE5990014767D /* TextAnalysisViewEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisViewEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,7 @@
 			children = (
 				00905F7828FB35C100FD75B4 /* SentimAPI */,
 				00905F7728FB35A000FD75B4 /* PerspectiveAPI */,
+				00F93E7D28FED45C0014767D /* Stretch.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 			children = (
 				00507ACB28F85AB400CA12CB /* TextAnalysisView.swift */,
 				00507ACC28F85AB400CA12CB /* TextAnalysisViewController.swift */,
+				00F93E7F28FEE5990014767D /* TextAnalysisViewEntity.swift */,
 			);
 			path = TextAnalysisView;
 			sourceTree = "<group>";
@@ -470,6 +476,8 @@
 				00507ADA28F85AB400CA12CB /* TextAnalysisService.swift in Sources */,
 				00507AD328F85AB400CA12CB /* TextAnalysisPresenting.swift in Sources */,
 				00297E4D28FB0F7B005BE371 /* Enviroment.swift in Sources */,
+				00F93E8028FEE5990014767D /* TextAnalysisViewEntity.swift in Sources */,
+				00F93E7E28FED45C0014767D /* Stretch.swift in Sources */,
 				00507ADB28F85AB400CA12CB /* ViewControllerFactory.swift in Sources */,
 				00297E5028FB1125005BE371 /* HttpError.swift in Sources */,
 				00507A8D28F8590B00CA12CB /* AppDelegate.swift in Sources */,

@@ -33,6 +33,10 @@ class TextAnalysisViewController: UIViewController {
 }
 
 extension TextAnalysisViewController: TextAnalysisPresenterDelegate {
+    func displayData(_ entity: TextAnalysisViewEntity) {
+        print("DATA: \(entity.sentimData!.result) and \(entity.perspectiveData!.attributeScores.toxicity)")
+    }
+    
     func startLoading() { }
     
     func dismissLoading() { }

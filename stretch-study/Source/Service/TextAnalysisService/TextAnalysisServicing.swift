@@ -9,5 +9,5 @@ import Foundation
 
 protocol TextAnalysisServicing {
     func analyseTextToxicity(requestData: PerspectiveRequest, completion: @escaping (Result<PerspectiveResponse, Error>) -> Void)
-    func analyseTextSentiment(text: String, completion: @escaping (Result<SentimResponse, Error>) -> Void)
+    func analyseTextSentiment(requestData: Stretch, completion: @escaping (Result<SentimResponse, Error>) -> Void)
 }

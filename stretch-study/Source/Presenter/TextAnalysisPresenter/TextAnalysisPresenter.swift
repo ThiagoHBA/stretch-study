@@ -10,6 +10,7 @@ import Foundation
 class TextAnalysisPresenter: TextAnalysisPresenting {
     
     private let service: TextAnalysisServicing!
+    private var viewEntity = TextAnalysisViewEntity()
     weak var delegate: TextAnalysisPresenterDelegate?
     
     init(service: TextAnalysisServicing) {
@@ -17,15 +18,54 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
     }
     
     func analyseText(_ text: String) {
-        let dataToRequest = PerspectiveRequest(comment: Comment(text: text))
+        let group = DispatchGroup()
+ 
+        let stretch = Stretch(text: text)
+        let perspectiveData = PerspectiveRequest(comment: stretch)
+        let sentimData = stretch
+        
         delegate?.startLoading()
-        service.analyseTextToxicity(requestData: dataToRequest) { [weak self] result in
+        analyseToxicity()
+        analyseSentiment()
+        
+        group.notify(queue: DispatchQueue.global()) { [weak self] in
             self?.delegate?.dismissLoading()
-            switch result {
-                case .success(let response):
-                    print(response)
-                case .failure(let error):
-                    self?.delegate?.showError(title: "Error", message: error.localizedDescription)
+            if let requestError = self?.viewEntity.error {
+                self?.delegate?.showError(title: "Error", message: requestError)
+                return
+            }
+            if let perspectiveData = self?.viewEntity.perspectiveData, let sentimData = self?.viewEntity.sentimData {
+                self?.delegate?.displayData(
+                    TextAnalysisViewEntity(
+                        perspectiveData: perspectiveData,
+                        sentimData: sentimData
+                    )
+                )
+            }
+        }
+        
+        func analyseToxicity() {
+            group.enter()
+            service.analyseTextToxicity(requestData: perspectiveData) { [weak self] result in
+                group.leave()
+                switch result {
+                    case .success(let response):
+                        self?.viewEntity.perspectiveData = response
+                    case .failure(let error):
+                        self?.viewEntity.error = error.localizedDescription
+                }
+            }
+        }
+        func analyseSentiment() {
+            group.enter()
+            service.analyseTextSentiment(requestData: sentimData) { [weak self] result in
+                group.leave()
+                switch result {
+                    case .success(let response):
+                        self?.viewEntity.sentimData = response
+                    case .failure(let error):
+                        self?.viewEntity.error = error.localizedDescription
+                }
             }
         }
     }
