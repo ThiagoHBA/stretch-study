@@ -37,5 +37,7 @@ extension TextAnalysisViewController: TextAnalysisPresenterDelegate {
     
     func dismissLoading() { }
     
-    func showError(title: String, message: String) { }
+    func showError(title: String, message: String) {
+        print("Error: \(message)")
+    }
 }

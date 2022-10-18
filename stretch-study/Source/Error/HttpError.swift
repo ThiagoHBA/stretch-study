@@ -24,7 +24,7 @@ enum HTTPError: Error, LocalizedError {
 extension HTTPError {
     private func getDescription(of statusCode: Int) -> String {
         if (400...499).contains(statusCode) {
-            return "Please make sure you filled in the all the required fields."
+            return "Please make sure you filled in the all the required fields correctly."
         } else if (500...599).contains(statusCode) {
             return "Sorry, couldn't reach our server."
         } else if (700...).contains(statusCode) {
