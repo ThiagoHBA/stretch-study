@@ -14,7 +14,6 @@
 		00507A8F28F8590B00CA12CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507A8E28F8590B00CA12CB /* SceneDelegate.swift */; };
 		00507A9628F8590C00CA12CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00507A9528F8590C00CA12CB /* Assets.xcassets */; };
 		00507A9928F8590C00CA12CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00507A9728F8590C00CA12CB /* LaunchScreen.storyboard */; };
-		00507AA428F8590C00CA12CB /* stretch_studyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AA328F8590C00CA12CB /* stretch_studyTests.swift */; };
 		00507AAE28F8590C00CA12CB /* stretch_studyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AAD28F8590C00CA12CB /* stretch_studyUITests.swift */; };
 		00507AB028F8590C00CA12CB /* stretch_studyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AAF28F8590C00CA12CB /* stretch_studyUITestsLaunchTests.swift */; };
 		00507AD328F85AB400CA12CB /* TextAnalysisPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507AC328F85AB400CA12CB /* TextAnalysisPresenting.swift */; };
@@ -35,6 +34,9 @@
 		00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8928FDAFBB00FD75B4 /* MapperError.swift */; };
 		00F93E7E28FED45C0014767D /* Stretch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E7D28FED45C0014767D /* Stretch.swift */; };
 		00F93E8028FEE5990014767D /* TextAnalysisViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E7F28FEE5990014767D /* TextAnalysisViewEntity.swift */; };
+		00F93E8328FEED440014767D /* TextAnalysisPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8228FEED440014767D /* TextAnalysisPresenterTests.swift */; };
+		00F93E8628FEEDB00014767D /* TextAnalysisServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */; };
+		00F93E8828FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +67,6 @@
 		00507A9828F8590C00CA12CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00507A9A28F8590C00CA12CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00507A9F28F8590C00CA12CB /* stretch-studyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stretch-studyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		00507AA328F8590C00CA12CB /* stretch_studyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stretch_studyTests.swift; sourceTree = "<group>"; };
 		00507AA928F8590C00CA12CB /* stretch-studyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stretch-studyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00507AAD28F8590C00CA12CB /* stretch_studyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stretch_studyUITests.swift; sourceTree = "<group>"; };
 		00507AAF28F8590C00CA12CB /* stretch_studyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stretch_studyUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -88,6 +89,9 @@
 		00905F8928FDAFBB00FD75B4 /* MapperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperError.swift; sourceTree = "<group>"; };
 		00F93E7D28FED45C0014767D /* Stretch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stretch.swift; sourceTree = "<group>"; };
 		00F93E7F28FEE5990014767D /* TextAnalysisViewEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisViewEntity.swift; sourceTree = "<group>"; };
+		00F93E8228FEED440014767D /* TextAnalysisPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterTests.swift; sourceTree = "<group>"; };
+		00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisServiceSpy.swift; sourceTree = "<group>"; };
+		00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +163,8 @@
 		00507AA228F8590C00CA12CB /* stretch-studyTests */ = {
 			isa = PBXGroup;
 			children = (
-				00507AA328F8590C00CA12CB /* stretch_studyTests.swift */,
+				00F93E8428FEED9C0014767D /* Service */,
+				00F93E8128FEED2C0014767D /* Presenter */,
 			);
 			path = "stretch-studyTests";
 			sourceTree = "<group>";
@@ -320,6 +325,23 @@
 				00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		00F93E8128FEED2C0014767D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				00F93E8228FEED440014767D /* TextAnalysisPresenterTests.swift */,
+				00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		00F93E8428FEED9C0014767D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,7 +525,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00507AA428F8590C00CA12CB /* stretch_studyTests.swift in Sources */,
+				00F93E8628FEEDB00014767D /* TextAnalysisServiceSpy.swift in Sources */,
+				00F93E8828FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift in Sources */,
+				00F93E8328FEED440014767D /* TextAnalysisPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
