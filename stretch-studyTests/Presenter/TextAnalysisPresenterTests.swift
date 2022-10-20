@@ -18,35 +18,22 @@ private typealias SutAndDoubles = (
 final class TextAnalysisPresenterTests: XCTestCase {
     
     func test_loadInitialState_whenRequestSuccess_shouldCallDelegateCorrectly() {
+        let expectation = XCTestExpectation(description: "End Analysis")
         let (sut, doubles) = makeSUT()
         let text = "Hello, i am a text!"
         let perspectiveData = createPerspectiveResponse(text)
         let sentimData = createSentimResponse(text)
         
-        sut.analyseText(text)
+        sut.analyseText(text) {
+            expectation.fulfill()
+            let expectedData = TextAnalysisViewEntity(perspectiveData: perspectiveData, sentimData: sentimData)
+            XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .displayData(expectedData)])
+        }
+        
         doubles.serviceSpy.complete(with: Result<PerspectiveResponse, Error>.success(perspectiveData))
         doubles.serviceSpy.complete(with: Result<SentimResponse, Error>.success(sentimData))
         
-        let expectedData = TextAnalysisViewEntity(perspectiveData: perspectiveData, sentimData: sentimData)
-        XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .displayData(expectedData)])
-//        XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .displayData(<#T##TextAnalysisViewEntity#>)])
-        
-//        let expectedTitle = "Tivemos um erro :("
-//        let expectedMessage = "Tente novamente mais tarde."
-//
-//        sut.loadInitialState()
-//        doubles.serviceSpy.complete(with: .failure(.someError))
-//
-//        XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.showLoading, .hideLoading, .showError(expectedTitle, expectedMessage)])
-    }
-    
-    func test_loadInitialState_whenRequestIsFail_shouldCallDelegateCorrectly() {
-        let (sut, doubles) = makeSUT()
-        
-//        sut.loadInitialState()
-//        doubles.serviceSpy.complete(with: .success(.init(name: "Mateus")))
-//        
-//        XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.showLoading, .hideLoading, .display("Mateus")])
+        wait(for: [expectation], timeout: 5)
     }
     
     private func makeSUT() -> SutAndDoubles {
@@ -57,6 +44,7 @@ final class TextAnalysisPresenterTests: XCTestCase {
          
          return (sut, (serviceSpy, delegateSpy))
      }
+    
     
     private func createPerspectiveResponse(_ text: String) -> PerspectiveResponse {
         return PerspectiveResponse(
@@ -74,7 +62,10 @@ final class TextAnalysisPresenterTests: XCTestCase {
     }
     private func createSentimResponse(_ text: String) -> SentimResponse {
         SentimResponse(
-            result: SentimResult(polarity: 0.9, type: "neutral"), sentences: [Sentence(sentence: "Hello, i am a text", sentiment: SentimResult(polarity: 0.9, type: "neutral"))]
+            result: SentimResult(
+                polarity: 0.9, type: "neutral"
+            ),
+            sentences: [Sentence(sentence: "Hello, i am a text", sentiment: SentimResult(polarity: 0.9, type: "neutral"))]
         )
     }
 }

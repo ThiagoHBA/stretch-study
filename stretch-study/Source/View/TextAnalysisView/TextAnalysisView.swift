@@ -58,7 +58,7 @@ class TextAnalysisView: UIView {
     
     @objc func sendTextToAnalysis() {
         if let text = textViewAnalysis.text, !text.isEmpty {
-            presenter.analyseText(text)
+            presenter.analyseText(text, onEnd: {}) 
         }
     }
 }

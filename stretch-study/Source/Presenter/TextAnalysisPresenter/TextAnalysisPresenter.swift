@@ -8,7 +8,6 @@
 import Foundation
 
 class TextAnalysisPresenter: TextAnalysisPresenting {
-    
     private let service: TextAnalysisServicing!
     private var viewEntity = TextAnalysisViewEntity()
     weak var delegate: TextAnalysisPresenterDelegate?
@@ -17,9 +16,8 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
         self.service = service
     }
     
-    func analyseText(_ text: String) {
+    func analyseText(_ text: String, onEnd: @escaping () -> Void ) {
         let group = DispatchGroup()
- 
         let stretch = Stretch(text: text)
         let perspectiveData = PerspectiveRequest(comment: stretch)
         let sentimData = stretch
@@ -27,11 +25,11 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
         delegate?.startLoading()
         analyseToxicity()
         analyseSentiment()
-        
         group.notify(queue: DispatchQueue.global()) { [weak self] in
             self?.delegate?.dismissLoading()
             if let requestError = self?.viewEntity.error {
                 self?.delegate?.showError(title: "Error", message: requestError)
+                onEnd()
                 return
             }
             if let perspectiveData = self?.viewEntity.perspectiveData, let sentimData = self?.viewEntity.sentimData {
@@ -41,18 +39,19 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
                         sentimData: sentimData
                     )
                 )
+                onEnd()
             }
         }
-        
+    
         func analyseToxicity() {
             group.enter()
             service.analyseTextToxicity(requestData: perspectiveData) { [weak self] result in
                 group.leave()
                 switch result {
-                    case .success(let response):
-                        self?.viewEntity.perspectiveData = response
-                    case .failure(let error):
-                        self?.viewEntity.error = error.localizedDescription
+                case .success(let response):
+                    self?.viewEntity.perspectiveData = response
+                case .failure(let error):
+                    self?.viewEntity.error = error.localizedDescription
                 }
             }
         }
@@ -61,10 +60,10 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
             service.analyseTextSentiment(requestData: sentimData) { [weak self] result in
                 group.leave()
                 switch result {
-                    case .success(let response):
-                        self?.viewEntity.sentimData = response
-                    case .failure(let error):
-                        self?.viewEntity.error = error.localizedDescription
+                case .success(let response):
+                    self?.viewEntity.sentimData = response
+                case .failure(let error):
+                    self?.viewEntity.error = error.localizedDescription
                 }
             }
         }
