@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NetworkServicing {
-    func fetch(endpoint: URLRequest, completion: @escaping (Result<Data, HTTPError>) -> Void)
+    func fetch(endpoint: EndpointProtocol, completion: @escaping (Result<Data, HTTPError>) -> Void)
 }

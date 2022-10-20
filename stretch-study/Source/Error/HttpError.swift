@@ -24,11 +24,11 @@ enum HTTPError: Error, LocalizedError {
 extension HTTPError {
     private func getDescription(of statusCode: Int) -> String {
         if (400...499).contains(statusCode) {
-            return "Please make sure you filled in the all the required fields correctly."
+            return "Please make sure you filled in the all the required fields correctly. \(statusCode)"
         } else if (500...599).contains(statusCode) {
-            return "Sorry, couldn't reach our server."
+            return "Sorry, couldn't reach our server. \(statusCode)"
         } else if (700...).contains(statusCode) {
-            return "Sorry, something went wrong. Try again later."
+            return "Sorry, something went wrong. Try again later. \(statusCode)"
         }
         
         return "Unknown"

@@ -8,8 +8,15 @@
 import Foundation
 
 final class NetworkService: NetworkServicing {
-    func fetch(endpoint: URLRequest, completion: @escaping (Result<Data, HTTPError>) -> Void) {
-        URLSession.shared.dataTask(with: endpoint) { data, response, error in
+    func fetch(endpoint: EndpointProtocol, completion: @escaping (Result<Data, HTTPError>) -> Void) {
+        guard let url = endpoint.makeURL() else { return }
+        
+        var request = URLRequest(url: url)
+        request.allHTTPHeaderFields = endpoint.headers
+        request.httpMethod = endpoint.httpMethod.rawValue
+        request.httpBody = endpoint.body
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 completion(.failure(HTTPError.transportError(error!)))
                 return

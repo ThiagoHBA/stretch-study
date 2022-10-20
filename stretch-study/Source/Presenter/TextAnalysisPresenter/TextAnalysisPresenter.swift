@@ -25,22 +25,17 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
         delegate?.startLoading()
         analyseToxicity()
         analyseSentiment()
+        
         group.notify(queue: DispatchQueue.global()) { [weak self] in
-            self?.delegate?.dismissLoading()
-            if let requestError = self?.viewEntity.error {
-                self?.delegate?.showError(title: "Error", message: requestError)
-                onEnd()
-                return
+            guard let self = self else { return }
+            self.delegate?.dismissLoading()
+            
+            if let requestError = self.viewEntity.error {
+                self.delegate?.showError(title: "Error", message: requestError.message, origin: requestError.origin)
             }
-            if let perspectiveData = self?.viewEntity.perspectiveData, let sentimData = self?.viewEntity.sentimData {
-                self?.delegate?.displayData(
-                    TextAnalysisViewEntity(
-                        perspectiveData: perspectiveData,
-                        sentimData: sentimData
-                    )
-                )
-                onEnd()
-            }
+            
+            self.delegate?.displayData(self.viewEntity)
+            onEnd()
         }
     
         func analyseToxicity() {
@@ -51,7 +46,7 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
                 case .success(let response):
                     self?.viewEntity.perspectiveData = response
                 case .failure(let error):
-                    self?.viewEntity.error = error.localizedDescription
+                    self?.viewEntity.error = (ErrorOrigin.perspective, error.localizedDescription)
                 }
             }
         }
@@ -63,7 +58,7 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
                 case .success(let response):
                     self?.viewEntity.sentimData = response
                 case .failure(let error):
-                    self?.viewEntity.error = error.localizedDescription
+                    self?.viewEntity.error = (ErrorOrigin.sentim, error.localizedDescription)
                 }
             }
         }

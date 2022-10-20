@@ -22,21 +22,11 @@ class TextAnalysisService: TextAnalysisServicing {
             completion(.failure(MapperError.encodingError))
             return
         }
-        let endpoint = EndpointFactory.sentim.make(with: encodedData)
         
-        client.fetch(endpoint: endpoint) { result in
-            switch result {
-                case .success(let data):
-                    do {
-                        let decodedJson = try JSONDecoder().decode(SentimResponse.self, from: data)
-                        completion(.success(decodedJson))
-                    } catch {
-                        completion(.failure(MapperError.decodingError))
-                    }
-                case .failure(let error):
-                    completion(.failure(error))
-            }
-        }
+        let endpoint = SentimEndpoint(body: encodedData)
+        let loader = EndpointLoader<SentimResponse>()
+        
+        client.fetch(endpoint: endpoint) { result in loader.load(result: result, completion: completion)}
     }
     
     func analyseTextToxicity(
@@ -47,21 +37,9 @@ class TextAnalysisService: TextAnalysisServicing {
             completion(.failure(MapperError.encodingError))
             return
         }
-        let endpoint = EndpointFactory.perspective.make(with: encodedData)
+        let endpoint = PerspectiveEndPoint(body: encodedData)
+        let loader = EndpointLoader<PerspectiveResponse>()
         
-        client.fetch(endpoint: endpoint) { result in
-            switch result {
-                case .success(let data):
-                    do {
-                        let decodedJson = try JSONDecoder().decode(PerspectiveResponse.self, from: data)
-                        completion(.success(decodedJson))
-                    } catch {
-                        completion(.failure(MapperError.decodingError))
-                    }
-                case .failure(let error):
-                    completion(.failure(error))
-            }
-        }
-        
+        client.fetch(endpoint: endpoint) { result in loader.load(result: result, completion: completion)}
     }
 }
