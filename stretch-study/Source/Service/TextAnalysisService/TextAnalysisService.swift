@@ -22,11 +22,9 @@ class TextAnalysisService: TextAnalysisServicing {
             completion(.failure(MapperError.encodingError))
             return
         }
-        
         let endpoint = SentimEndpoint(body: encodedData)
         let loader = EndpointLoader<SentimResponse>()
-        
-        client.fetch(endpoint: endpoint) { result in loader.load(result: result, completion: completion)}
+        client.fetch(endpoint: endpoint) { result in loader.loadData(from: result, on: completion)}
     }
     
     func analyseTextToxicity(
@@ -39,7 +37,6 @@ class TextAnalysisService: TextAnalysisServicing {
         }
         let endpoint = PerspectiveEndPoint(body: encodedData)
         let loader = EndpointLoader<PerspectiveResponse>()
-        
-        client.fetch(endpoint: endpoint) { result in loader.load(result: result, completion: completion)}
+        client.fetch(endpoint: endpoint) { result in loader.loadData(from: result, on: completion)}
     }
 }

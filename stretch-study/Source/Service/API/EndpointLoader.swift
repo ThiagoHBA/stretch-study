@@ -8,7 +8,7 @@
 import Foundation
 
 struct EndpointLoader<T: Decodable> {
-    func load(result: Result<Data, HTTPError>, completion: @escaping (Result<T, Error>) -> Void) {
+    func loadData(from result: Result<Data, HTTPError>, on completion: @escaping (Result<T, Error>) -> Void) {
         switch result {
             case .success(let data):
                 do {
