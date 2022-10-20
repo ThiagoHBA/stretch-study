@@ -8,5 +8,5 @@
 import Foundation
 
 protocol TextAnalysisPresenting {
-    func analyseText(_ text: String)
+    func analyseText(_ text: String, onEnd: @escaping () -> Void)
 }
