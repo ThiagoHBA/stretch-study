@@ -34,14 +34,14 @@ class TextAnalysisViewController: UIViewController {
 
 extension TextAnalysisViewController: TextAnalysisPresenterDelegate {
     func displayData(_ entity: TextAnalysisViewEntity) {
-        print("DATA: \(entity.sentimData!.result) and \(entity.perspectiveData!.attributeScores.toxicity)")
+        print("DATA: \(String(describing: entity.sentimData?.result)) and \(String(describing: entity.perspectiveData?.attributeScores.toxicity))")
     }
     
     func startLoading() { }
     
     func dismissLoading() { }
     
-    func showError(title: String, message: String) {
-        print("Error: \(message)")
+    func showError(title: String, message: String, origin: ErrorOrigin) {
+        print("Error from \(origin.rawValue): \(message)")
     }
 }

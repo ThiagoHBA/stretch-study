@@ -13,12 +13,12 @@ class TextAnalysisPresenterDelegateSpy: TextAnalysisPresenterDelegate {
         case displayData(TextAnalysisViewEntity)
         case startLoading
         case dismissLoading
-        case showError(String, String)
+        case showError(String, String, ErrorOrigin)
         
         var description: String {
             switch self {
-                case let .showError(title, message):
-                    return "showError - \(title) - \(message)"
+                case let .showError(title, message, origin):
+                    return "showError - \(title) - \(message) - \(origin)"
                 case .displayData(let entity):
                     return "displayData - \(entity)"
                 case .startLoading:
@@ -43,7 +43,7 @@ class TextAnalysisPresenterDelegateSpy: TextAnalysisPresenterDelegate {
         receivedMessages.append(.displayData(entity))
     }
             
-    func showError(title: String, message: String) {
-        receivedMessages.append(.showError(title, message))
+    func showError(title: String, message: String, origin: ErrorOrigin) {
+        receivedMessages.append(.showError(title, message, origin))
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 struct TextAnalysisViewEntity {
     var perspectiveData: PerspectiveResponse?
     var sentimData: SentimResponse?
-    var error: String?
+    var error: (origin: ErrorOrigin, message: String)?
 }
 
 extension TextAnalysisViewEntity: Equatable {

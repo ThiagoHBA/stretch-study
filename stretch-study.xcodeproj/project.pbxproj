@@ -28,7 +28,6 @@
 		00507ADE28F989E300CA12CB /* SentimResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00507ADD28F989E300CA12CB /* SentimResponse.swift */; };
 		00905F7628FB353C00FD75B4 /* PerspectiveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F7528FB353C00FD75B4 /* PerspectiveRequest.swift */; };
 		00905F8128FD8C3700FD75B4 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8028FD8C3700FD75B4 /* URLRequest.swift */; };
-		00905F8328FD982B00FD75B4 /* EndpointFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8228FD982B00FD75B4 /* EndpointFactory.swift */; };
 		00905F8528FD99EE00FD75B4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8428FD99EE00FD75B4 /* NetworkService.swift */; };
 		00905F8828FD9F4900FD75B4 /* NetworkServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */; };
 		00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00905F8928FDAFBB00FD75B4 /* MapperError.swift */; };
@@ -37,6 +36,11 @@
 		00F93E8328FEED440014767D /* TextAnalysisPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8228FEED440014767D /* TextAnalysisPresenterTests.swift */; };
 		00F93E8628FEEDB00014767D /* TextAnalysisServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */; };
 		00F93E8828FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift */; };
+		00F93E8A290185700014767D /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E89290185700014767D /* EndpointProtocol.swift */; };
+		00F93E8D290185ED0014767D /* PerspectiveEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8C290185ED0014767D /* PerspectiveEndpoint.swift */; };
+		00F93E8F29018A2B0014767D /* SentimEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8E29018A2B0014767D /* SentimEndpoint.swift */; };
+		00F93E912901922B0014767D /* ErrorOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E902901922B0014767D /* ErrorOrigin.swift */; };
+		00F93E932901963A0014767D /* EndpointLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E922901963A0014767D /* EndpointLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,7 +87,6 @@
 		00905F7428FB25D300FD75B4 /* Configurations.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Configurations.xcconfig; sourceTree = "<group>"; };
 		00905F7528FB353C00FD75B4 /* PerspectiveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveRequest.swift; sourceTree = "<group>"; };
 		00905F8028FD8C3700FD75B4 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
-		00905F8228FD982B00FD75B4 /* EndpointFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointFactory.swift; sourceTree = "<group>"; };
 		00905F8428FD99EE00FD75B4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		00905F8728FD9F4900FD75B4 /* NetworkServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicing.swift; sourceTree = "<group>"; };
 		00905F8928FDAFBB00FD75B4 /* MapperError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapperError.swift; sourceTree = "<group>"; };
@@ -92,6 +95,11 @@
 		00F93E8228FEED440014767D /* TextAnalysisPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterTests.swift; sourceTree = "<group>"; };
 		00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisServiceSpy.swift; sourceTree = "<group>"; };
 		00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterDelegate.swift; sourceTree = "<group>"; };
+		00F93E89290185700014767D /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
+		00F93E8C290185ED0014767D /* PerspectiveEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveEndpoint.swift; sourceTree = "<group>"; };
+		00F93E8E29018A2B0014767D /* SentimEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimEndpoint.swift; sourceTree = "<group>"; };
+		00F93E902901922B0014767D /* ErrorOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorOrigin.swift; sourceTree = "<group>"; };
+		00F93E922901963A0014767D /* EndpointLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +132,7 @@
 			children = (
 				00297E4F28FB1125005BE371 /* HttpError.swift */,
 				00905F8928FDAFBB00FD75B4 /* MapperError.swift */,
+				00F93E902901922B0014767D /* ErrorOrigin.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -233,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				00507AC628F85AB400CA12CB /* ViewCoding.swift */,
+				00F93E89290185700014767D /* EndpointProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -268,6 +278,7 @@
 		00507ACD28F85AB400CA12CB /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				00F93E8B290185D70014767D /* API */,
 				00905F8628FD9F3A00FD75B4 /* Network */,
 				00507ACE28F85AB400CA12CB /* TextAnalysisService */,
 				00297E4C28FB0F7B005BE371 /* Enviroment.swift */,
@@ -288,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				00507AD228F85AB400CA12CB /* ViewControllerFactory.swift */,
-				00905F8228FD982B00FD75B4 /* EndpointFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -342,6 +352,16 @@
 				00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		00F93E8B290185D70014767D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				00F93E8C290185ED0014767D /* PerspectiveEndpoint.swift */,
+				00F93E8E29018A2B0014767D /* SentimEndpoint.swift */,
+				00F93E922901963A0014767D /* EndpointLoader.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,18 +517,21 @@
 			files = (
 				00507ADA28F85AB400CA12CB /* TextAnalysisService.swift in Sources */,
 				00507AD328F85AB400CA12CB /* TextAnalysisPresenting.swift in Sources */,
+				00F93E8F29018A2B0014767D /* SentimEndpoint.swift in Sources */,
 				00297E4D28FB0F7B005BE371 /* Enviroment.swift in Sources */,
 				00F93E8028FEE5990014767D /* TextAnalysisViewEntity.swift in Sources */,
 				00F93E7E28FED45C0014767D /* Stretch.swift in Sources */,
+				00F93E912901922B0014767D /* ErrorOrigin.swift in Sources */,
 				00507ADB28F85AB400CA12CB /* ViewControllerFactory.swift in Sources */,
 				00297E5028FB1125005BE371 /* HttpError.swift in Sources */,
 				00507A8D28F8590B00CA12CB /* AppDelegate.swift in Sources */,
 				00507AD728F85AB400CA12CB /* TextAnalysisView.swift in Sources */,
+				00F93E8D290185ED0014767D /* PerspectiveEndpoint.swift in Sources */,
 				00507AD528F85AB400CA12CB /* ViewCoding.swift in Sources */,
 				00507A8F28F8590B00CA12CB /* SceneDelegate.swift in Sources */,
 				00507AD628F85AB400CA12CB /* PerspectiveResponse.swift in Sources */,
+				00F93E8A290185700014767D /* EndpointProtocol.swift in Sources */,
 				00905F8528FD99EE00FD75B4 /* NetworkService.swift in Sources */,
-				00905F8328FD982B00FD75B4 /* EndpointFactory.swift in Sources */,
 				00507ADE28F989E300CA12CB /* SentimResponse.swift in Sources */,
 				00905F8828FD9F4900FD75B4 /* NetworkServicing.swift in Sources */,
 				00297E4828FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift in Sources */,
@@ -518,6 +541,7 @@
 				00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */,
 				00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */,
 				00507AD428F85AB400CA12CB /* TextAnalysisPresenter.swift in Sources */,
+				00F93E932901963A0014767D /* EndpointLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
