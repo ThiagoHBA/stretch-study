@@ -280,20 +280,20 @@
 			isa = PBXGroup;
 			children = (
 				00905F8628FD9F3A00FD75B4 /* Network */,
-				00507ACE28F85AB400CA12CB /* TextAnalysisService */,
+				00507ACE28F85AB400CA12CB /* TextAnalysis */,
 				00F93ED929021C7D0014767D /* Endpoints */,
 				00F93E922901963A0014767D /* EndpointLoader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
 		};
-		00507ACE28F85AB400CA12CB /* TextAnalysisService */ = {
+		00507ACE28F85AB400CA12CB /* TextAnalysis */ = {
 			isa = PBXGroup;
 			children = (
 				00507ACF28F85AB400CA12CB /* TextAnalysisServicing.swift */,
 				00507AD028F85AB400CA12CB /* TextAnalysisService.swift */,
 			);
-			path = TextAnalysisService;
+			path = TextAnalysis;
 			sourceTree = "<group>";
 		};
 		00507AD128F85AB400CA12CB /* Factory */ = {
