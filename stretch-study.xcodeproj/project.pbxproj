@@ -208,6 +208,7 @@
 		00507AC028F85AB400CA12CB /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				00F93ED829021C6B0014767D /* Utilities */,
 				00905F7928FD7D2600FD75B4 /* Extensions */,
 				00297E4E28FB1117005BE371 /* Error */,
 				00507AC528F85AB400CA12CB /* Protocol */,
@@ -278,10 +279,10 @@
 		00507ACD28F85AB400CA12CB /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				00F93E8B290185D70014767D /* API */,
+				00F93E922901963A0014767D /* EndpointLoader.swift */,
+				00F93ED929021C7D0014767D /* Endpoints */,
 				00905F8628FD9F3A00FD75B4 /* Network */,
 				00507ACE28F85AB400CA12CB /* TextAnalysisService */,
-				00297E4C28FB0F7B005BE371 /* Enviroment.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -354,14 +355,21 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		00F93E8B290185D70014767D /* API */ = {
+		00F93ED829021C6B0014767D /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				00297E4C28FB0F7B005BE371 /* Enviroment.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		00F93ED929021C7D0014767D /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
 				00F93E8C290185ED0014767D /* PerspectiveEndpoint.swift */,
 				00F93E8E29018A2B0014767D /* SentimEndpoint.swift */,
-				00F93E922901963A0014767D /* EndpointLoader.swift */,
 			);
-			path = API;
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
