@@ -50,6 +50,7 @@ class TextAnalysisView: UIView {
         self.presenter = presenter
         super.init(frame: frame)
         buildLayout()
+        presenter.initState()
     }
     
     required init?(coder: NSCoder) {
@@ -64,6 +65,9 @@ class TextAnalysisView: UIView {
 }
 
 extension TextAnalysisView: ViewCoding {
+    func setupAditionalConfiguration() {
+        self.textViewAnalysis.delegate = self
+    }
     
     func addViewsInHierarchy() {
         self.addSubview(label)
@@ -103,5 +107,13 @@ extension TextAnalysisView: ViewCoding {
         NSLayoutConstraint.activate(textViewConstraints)
         NSLayoutConstraint.activate(analysisButtonConstraint)
         NSLayoutConstraint.activate(textViewLabelConstraint)
+    }
+}
+
+extension TextAnalysisView: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if let text = textView.text, !text.isEmpty {
+            presenter.saveDraft(Stretch(text: text))
+        }
     }
 }

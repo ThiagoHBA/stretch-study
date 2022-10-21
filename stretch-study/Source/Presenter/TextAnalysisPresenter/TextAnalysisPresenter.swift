@@ -9,11 +9,22 @@ import Foundation
 
 class TextAnalysisPresenter: TextAnalysisPresenting {
     private let service: TextAnalysisServicing!
+    private let persistence: DraftServicing!
     private var viewEntity = TextAnalysisViewEntity()
     weak var delegate: TextAnalysisPresenterDelegate?
     
-    init(service: TextAnalysisServicing) {
+    init(service: TextAnalysisServicing, persistence: DraftServicing) {
         self.service = service
+        self.persistence = persistence
+    }
+    
+    func initState() {
+        guard let draft: Stretch = persistence.getDraft() else { return }
+        delegate?.displayDraft(draft)
+    }
+
+    func saveDraft(_ draft: Stretch) {
+        persistence.writeDraft(data: draft)
     }
     
     func analyseText(_ text: String, onEnd: @escaping () -> Void ) {

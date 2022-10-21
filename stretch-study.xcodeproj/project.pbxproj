@@ -41,6 +41,10 @@
 		00F93E8F29018A2B0014767D /* SentimEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8E29018A2B0014767D /* SentimEndpoint.swift */; };
 		00F93E912901922B0014767D /* ErrorOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E902901922B0014767D /* ErrorOrigin.swift */; };
 		00F93E932901963A0014767D /* EndpointLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E922901963A0014767D /* EndpointLoader.swift */; };
+		00F93EDC29021D7A0014767D /* FileManagerServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EDB29021D7A0014767D /* FileManagerServicing.swift */; };
+		00F93EDE29021D820014767D /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EDD29021D820014767D /* FileManagerService.swift */; };
+		00F93EE229022B200014767D /* DraftServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EE129022B200014767D /* DraftServicing.swift */; };
+		00F93EE429022BA70014767D /* DraftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EE329022BA70014767D /* DraftService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +104,10 @@
 		00F93E8E29018A2B0014767D /* SentimEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimEndpoint.swift; sourceTree = "<group>"; };
 		00F93E902901922B0014767D /* ErrorOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorOrigin.swift; sourceTree = "<group>"; };
 		00F93E922901963A0014767D /* EndpointLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointLoader.swift; sourceTree = "<group>"; };
+		00F93EDB29021D7A0014767D /* FileManagerServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServicing.swift; sourceTree = "<group>"; };
+		00F93EDD29021D820014767D /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		00F93EE129022B200014767D /* DraftServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftServicing.swift; sourceTree = "<group>"; };
+		00F93EE329022BA70014767D /* DraftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,7 +287,8 @@
 		00507ACD28F85AB400CA12CB /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				00905F8628FD9F3A00FD75B4 /* Network */,
+				00F93EE029022B160014767D /* Draft */,
+				00F93EDF29022B080014767D /* Wrappers */,
 				00507ACE28F85AB400CA12CB /* TextAnalysis */,
 				00F93ED929021C7D0014767D /* Endpoints */,
 				00F93E922901963A0014767D /* EndpointLoader.swift */,
@@ -370,6 +379,33 @@
 				00F93E8E29018A2B0014767D /* SentimEndpoint.swift */,
 			);
 			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		00F93EDA29021D6A0014767D /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				00F93EDB29021D7A0014767D /* FileManagerServicing.swift */,
+				00F93EDD29021D820014767D /* FileManagerService.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		00F93EDF29022B080014767D /* Wrappers */ = {
+			isa = PBXGroup;
+			children = (
+				00F93EDA29021D6A0014767D /* Persistence */,
+				00905F8628FD9F3A00FD75B4 /* Network */,
+			);
+			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		00F93EE029022B160014767D /* Draft */ = {
+			isa = PBXGroup;
+			children = (
+				00F93EE129022B200014767D /* DraftServicing.swift */,
+				00F93EE329022BA70014767D /* DraftService.swift */,
+			);
+			path = Draft;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,6 +564,7 @@
 				00F93E8F29018A2B0014767D /* SentimEndpoint.swift in Sources */,
 				00297E4D28FB0F7B005BE371 /* Enviroment.swift in Sources */,
 				00F93E8028FEE5990014767D /* TextAnalysisViewEntity.swift in Sources */,
+				00F93EE429022BA70014767D /* DraftService.swift in Sources */,
 				00F93E7E28FED45C0014767D /* Stretch.swift in Sources */,
 				00F93E912901922B0014767D /* ErrorOrigin.swift in Sources */,
 				00507ADB28F85AB400CA12CB /* ViewControllerFactory.swift in Sources */,
@@ -541,15 +578,18 @@
 				00F93E8A290185700014767D /* EndpointProtocol.swift in Sources */,
 				00905F8528FD99EE00FD75B4 /* NetworkService.swift in Sources */,
 				00507ADE28F989E300CA12CB /* SentimResponse.swift in Sources */,
+				00F93EDC29021D7A0014767D /* FileManagerServicing.swift in Sources */,
 				00905F8828FD9F4900FD75B4 /* NetworkServicing.swift in Sources */,
 				00297E4828FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift in Sources */,
 				00507AD928F85AB400CA12CB /* TextAnalysisServicing.swift in Sources */,
+				00F93EE229022B200014767D /* DraftServicing.swift in Sources */,
 				00905F8128FD8C3700FD75B4 /* URLRequest.swift in Sources */,
 				00905F7628FB353C00FD75B4 /* PerspectiveRequest.swift in Sources */,
 				00905F8A28FDAFBB00FD75B4 /* MapperError.swift in Sources */,
 				00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */,
 				00507AD428F85AB400CA12CB /* TextAnalysisPresenter.swift in Sources */,
 				00F93E932901963A0014767D /* EndpointLoader.swift in Sources */,
+				00F93EDE29021D820014767D /* FileManagerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
