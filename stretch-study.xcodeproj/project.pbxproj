@@ -279,10 +279,10 @@
 		00507ACD28F85AB400CA12CB /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				00F93E922901963A0014767D /* EndpointLoader.swift */,
-				00F93ED929021C7D0014767D /* Endpoints */,
 				00905F8628FD9F3A00FD75B4 /* Network */,
 				00507ACE28F85AB400CA12CB /* TextAnalysisService */,
+				00F93ED929021C7D0014767D /* Endpoints */,
+				00F93E922901963A0014767D /* EndpointLoader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
