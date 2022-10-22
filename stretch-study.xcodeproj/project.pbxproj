@@ -35,7 +35,7 @@
 		00F93E8028FEE5990014767D /* TextAnalysisViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E7F28FEE5990014767D /* TextAnalysisViewEntity.swift */; };
 		00F93E8328FEED440014767D /* TextAnalysisPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8228FEED440014767D /* TextAnalysisPresenterTests.swift */; };
 		00F93E8628FEEDB00014767D /* TextAnalysisServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */; };
-		00F93E8828FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift */; };
+		00F93E8828FEEEDB0014767D /* TextAnalysisPresenterDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegateSpy.swift */; };
 		00F93E8A290185700014767D /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E89290185700014767D /* EndpointProtocol.swift */; };
 		00F93E8D290185ED0014767D /* PerspectiveEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8C290185ED0014767D /* PerspectiveEndpoint.swift */; };
 		00F93E8F29018A2B0014767D /* SentimEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93E8E29018A2B0014767D /* SentimEndpoint.swift */; };
@@ -45,6 +45,11 @@
 		00F93EDE29021D820014767D /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EDD29021D820014767D /* FileManagerService.swift */; };
 		00F93EE229022B200014767D /* DraftServicing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EE129022B200014767D /* DraftServicing.swift */; };
 		00F93EE429022BA70014767D /* DraftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EE329022BA70014767D /* DraftService.swift */; };
+		00F93EE62902BC0F0014767D /* DraftServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EE52902BC0F0014767D /* DraftServiceSpy.swift */; };
+		00F93EE82902BDA50014767D /* ResponseMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EE72902BDA50014767D /* ResponseMaker.swift */; };
+		00F93EEB290393560014767D /* DraftServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EEA290393560014767D /* DraftServiceTest.swift */; };
+		00F93EEF29039B1F0014767D /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EEE29039B1F0014767D /* Testing.swift */; };
+		00F93EF129039E420014767D /* FileManagerServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EF029039E420014767D /* FileManagerServiceSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,7 +103,7 @@
 		00F93E7F28FEE5990014767D /* TextAnalysisViewEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisViewEntity.swift; sourceTree = "<group>"; };
 		00F93E8228FEED440014767D /* TextAnalysisPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterTests.swift; sourceTree = "<group>"; };
 		00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisServiceSpy.swift; sourceTree = "<group>"; };
-		00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterDelegate.swift; sourceTree = "<group>"; };
+		00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalysisPresenterDelegateSpy.swift; sourceTree = "<group>"; };
 		00F93E89290185700014767D /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		00F93E8C290185ED0014767D /* PerspectiveEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerspectiveEndpoint.swift; sourceTree = "<group>"; };
 		00F93E8E29018A2B0014767D /* SentimEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimEndpoint.swift; sourceTree = "<group>"; };
@@ -108,6 +113,11 @@
 		00F93EDD29021D820014767D /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
 		00F93EE129022B200014767D /* DraftServicing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftServicing.swift; sourceTree = "<group>"; };
 		00F93EE329022BA70014767D /* DraftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftService.swift; sourceTree = "<group>"; };
+		00F93EE52902BC0F0014767D /* DraftServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftServiceSpy.swift; sourceTree = "<group>"; };
+		00F93EE72902BDA50014767D /* ResponseMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMaker.swift; sourceTree = "<group>"; };
+		00F93EEA290393560014767D /* DraftServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftServiceTest.swift; sourceTree = "<group>"; };
+		00F93EEE29039B1F0014767D /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
+		00F93EF029039E420014767D /* FileManagerServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServiceSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,8 +190,11 @@
 		00507AA228F8590C00CA12CB /* stretch-studyTests */ = {
 			isa = PBXGroup;
 			children = (
+				00F93EE92903930C0014767D /* Spy */,
 				00F93E8428FEED9C0014767D /* Service */,
 				00F93E8128FEED2C0014767D /* Presenter */,
+				00F93EE72902BDA50014767D /* ResponseMaker.swift */,
+				00F93EEE29039B1F0014767D /* Testing.swift */,
 			);
 			path = "stretch-studyTests";
 			sourceTree = "<group>";
@@ -351,7 +364,6 @@
 			isa = PBXGroup;
 			children = (
 				00F93E8228FEED440014767D /* TextAnalysisPresenterTests.swift */,
-				00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -359,7 +371,7 @@
 		00F93E8428FEED9C0014767D /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */,
+				00F93EEA290393560014767D /* DraftServiceTest.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -406,6 +418,17 @@
 				00F93EE329022BA70014767D /* DraftService.swift */,
 			);
 			path = Draft;
+			sourceTree = "<group>";
+		};
+		00F93EE92903930C0014767D /* Spy */ = {
+			isa = PBXGroup;
+			children = (
+				00F93E8528FEEDB00014767D /* TextAnalysisServiceSpy.swift */,
+				00F93EE52902BC0F0014767D /* DraftServiceSpy.swift */,
+				00F93EF029039E420014767D /* FileManagerServiceSpy.swift */,
+				00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegateSpy.swift */,
+			);
+			path = Spy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,8 +620,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00F93EE82902BDA50014767D /* ResponseMaker.swift in Sources */,
+				00F93EEF29039B1F0014767D /* Testing.swift in Sources */,
 				00F93E8628FEEDB00014767D /* TextAnalysisServiceSpy.swift in Sources */,
-				00F93E8828FEEEDB0014767D /* TextAnalysisPresenterDelegate.swift in Sources */,
+				00F93E8828FEEEDB0014767D /* TextAnalysisPresenterDelegateSpy.swift in Sources */,
+				00F93EEB290393560014767D /* DraftServiceTest.swift in Sources */,
+				00F93EE62902BC0F0014767D /* DraftServiceSpy.swift in Sources */,
+				00F93EF129039E420014767D /* FileManagerServiceSpy.swift in Sources */,
 				00F93E8328FEED440014767D /* TextAnalysisPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

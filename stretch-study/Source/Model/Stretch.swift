@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Stretch: Codable {
+struct Stretch: Codable, Equatable {
     let text: String
 }

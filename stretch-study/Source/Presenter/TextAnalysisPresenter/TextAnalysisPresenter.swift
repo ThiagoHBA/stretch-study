@@ -28,10 +28,13 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
     }
     
     func analyseText(_ text: String, onEnd: @escaping () -> Void ) {
+        typealias Error = (origin: ErrorOrigin, message: String)
+        
         let group = DispatchGroup()
         let stretch = Stretch(text: text)
         let perspectiveData = PerspectiveRequest(comment: stretch)
         let sentimData = stretch
+        var errors: [Error] = []
         
         delegate?.startLoading()
         analyseToxicity()
@@ -41,7 +44,7 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
             guard let self = self else { return }
             self.delegate?.dismissLoading()
             
-            if let requestError = self.viewEntity.error {
+            if !errors.isEmpty, let requestError = errors.first {
                 self.delegate?.showError(title: "Error", message: requestError.message, origin: requestError.origin)
             }
             
@@ -52,25 +55,25 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
         func analyseToxicity() {
             group.enter()
             service.analyseTextToxicity(requestData: perspectiveData) { [weak self] result in
-                group.leave()
                 switch result {
-                case .success(let response):
-                    self?.viewEntity.perspectiveData = response
-                case .failure(let error):
-                    self?.viewEntity.error = (ErrorOrigin.perspective, error.localizedDescription)
+                    case .success(let response):
+                        self?.viewEntity.perspectiveData = response
+                    case .failure(let error):
+                        errors.append((ErrorOrigin.perspective, error.localizedDescription))
                 }
+                group.leave()
             }
         }
         func analyseSentiment() {
             group.enter()
             service.analyseTextSentiment(requestData: sentimData) { [weak self] result in
-                group.leave()
                 switch result {
-                case .success(let response):
-                    self?.viewEntity.sentimData = response
-                case .failure(let error):
-                    self?.viewEntity.error = (ErrorOrigin.sentim, error.localizedDescription)
+                    case .success(let response):
+                        self?.viewEntity.sentimData = response
+                    case .failure(let error):
+                        errors.append((ErrorOrigin.sentim, error.localizedDescription))
                 }
+                group.leave()
             }
         }
     }
