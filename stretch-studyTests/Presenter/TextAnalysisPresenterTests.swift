@@ -8,64 +8,112 @@
 import XCTest
 @testable import stretch_study
 
-private typealias SutAndDoubles = (
-    sut: TextAnalysisPresenter,
-    doubles: (
-        serviceSpy: TextAnalysisServiceSpy,
-        delegateSpy: TextAnalysisPresenterDelegateSpy
-    )
-)
 final class TextAnalysisPresenterTests: XCTestCase {
+    func test_initState_whenFileManagerReturnData_shouldCallDelegate() {
+        let (sut, doubles) = makeSUT()
+        let (text, _ ) = generateResponse()
+        let expectedData = Stretch(text: text)
+        doubles.draftSpy.writeDraft(data: expectedData)
+        sut.initState()
+        XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.displayDraft(expectedData)])
+    }
     
-    func test_loadInitialState_whenRequestSuccess_shouldCallDelegateCorrectly() {
+    func test_saveDraft_whenCalled_shouldSaveDataCorrectly() {
+        let (sut, doubles) = makeSUT()
+        let (text, _ ) = generateResponse()
+        let dataToSave = Stretch(text: text)
+        sut.saveDraft(dataToSave)
+        XCTAssertEqual(dataToSave, doubles.draftSpy.getDraft())
+    }
+    
+    func test_analyseText_whenRequestSuccess_shouldCallDelegateCorrectly() {
         let expectation = XCTestExpectation(description: "End Analysis")
         let (sut, doubles) = makeSUT()
-        let text = "Hello, i am a text!"
-        let perspectiveData = createPerspectiveResponse(text)
-        let sentimData = createSentimResponse(text)
+        let (text, response) = generateResponse()
         
         sut.analyseText(text) {
-            expectation.fulfill()
-            let expectedData = TextAnalysisViewEntity(perspectiveData: perspectiveData, sentimData: sentimData)
+            let expectedData = TextAnalysisViewEntity(perspectiveData: response.perpectiveResponse, sentimData: response.sentimResponse)
             XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .displayData(expectedData)])
+            expectation.fulfill()
         }
         
-        doubles.serviceSpy.complete(with: Result<PerspectiveResponse, Error>.success(perspectiveData))
-        doubles.serviceSpy.complete(with: Result<SentimResponse, Error>.success(sentimData))
+        doubles.serviceSpy.complete(with: Result<PerspectiveResponse, Error>.success(response.perpectiveResponse))
+        doubles.serviceSpy.complete(with: Result<SentimResponse, Error>.success(response.sentimResponse))
         
         wait(for: [expectation], timeout: 5)
     }
     
-    private func makeSUT() -> SutAndDoubles {
-         let serviceSpy = TextAnalysisServiceSpy()
-         let delegateSpy = TextAnalysisPresenterDelegateSpy()
-         let sut = TextAnalysisPresenter(service: serviceSpy)
-         sut.delegate = delegateSpy
-         
-         return (sut, (serviceSpy, delegateSpy))
-     }
-    
-    
-    private func createPerspectiveResponse(_ text: String) -> PerspectiveResponse {
-        return PerspectiveResponse(
-            attributeScores: AttributeScores(
-                severeToxicity: AttributeResult(spanScores: [SpanScore(begin: 0, end: text.count, score: Score(value: 0.9, type: .probability))], summaryScore: Score(value: 0.9, type: .probability)),
-                identityAttack: AttributeResult(spanScores: [SpanScore(begin: 0, end: text.count, score: Score(value: 0.9, type: .probability))], summaryScore: Score(value: 0.9, type: .probability)),
-                profanity: AttributeResult(spanScores: [SpanScore(begin: 0, end: text.count, score: Score(value: 0.9, type: .probability))], summaryScore: Score(value: 0.9, type: .probability)),
-                toxicity: AttributeResult(spanScores: [SpanScore(begin: 0, end: text.count, score: Score(value: 0.9, type: .probability))], summaryScore: Score(value: 0.9, type: .probability)),
-                threat: AttributeResult(spanScores: [SpanScore(begin: 0, end: text.count, score: Score(value: 0.9, type: .probability))], summaryScore: Score(value: 0.9, type: .probability)),
-                insult: AttributeResult(spanScores: [SpanScore(begin: 0, end: text.count, score: Score(value: 0.9, type: .probability))], summaryScore: Score(value: 0.9, type: .probability))
-            ),
-            languages: ["en"],
-            detectedLanguages: ["en"]
-        )
+    func test_analyseText_whenPerspectiveRequestFails_shouldCallDelegateCorrectly() {
+        let expectation = XCTestExpectation(description: "End Analysis")
+        let (sut, doubles) = makeSUT()
+        let (text, response) = generateResponse()
+        let perspectiveError = HTTPError.serverSideError(500)
+        
+        sut.analyseText(text) {
+            let expectedEntity = TextAnalysisViewEntity(perspectiveData: nil, sentimData: response.sentimResponse)
+            let expectedError = ("Error", "Sorry, couldn't reach our server. 500", ErrorOrigin.perspective)
+            XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .showError(expectedError.0, expectedError.1, expectedError.2), .displayData(expectedEntity)])
+            expectation.fulfill()
+        }
+        
+        doubles.serviceSpy.complete(with: Result<PerspectiveResponse, Error>.failure(perspectiveError))
+        doubles.serviceSpy.complete(with: Result<SentimResponse, Error>.success(response.sentimResponse))
+        
+        wait(for: [expectation], timeout: 5)
     }
-    private func createSentimResponse(_ text: String) -> SentimResponse {
-        SentimResponse(
-            result: SentimResult(
-                polarity: 0.9, type: "neutral"
-            ),
-            sentences: [Sentence(sentence: "Hello, i am a text", sentiment: SentimResult(polarity: 0.9, type: "neutral"))]
+    
+    func test_analyseText_whenSentimRequestFails_shouldCallDelegateCorrectly() {
+        let expectation = XCTestExpectation(description: "End Analysis")
+        let (sut, doubles) = makeSUT()
+        let (text, response) = generateResponse()
+        let sentimError = HTTPError.serverSideError(400)
+        
+        sut.analyseText(text) {
+            let expectedEntity = TextAnalysisViewEntity(perspectiveData: response.perpectiveResponse, sentimData: nil)
+            let expectedError = ("Error", "Please make sure you filled in the all the required fields correctly. 400", ErrorOrigin.sentim)
+            XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .showError(expectedError.0, expectedError.1, expectedError.2), .displayData(expectedEntity)])
+            expectation.fulfill()
+        }
+        
+        doubles.serviceSpy.complete(with: Result<PerspectiveResponse, Error>.success(response.perpectiveResponse))
+        doubles.serviceSpy.complete(with: Result<SentimResponse, Error>.failure(sentimError))
+        
+        wait(for: [expectation], timeout: 5)
+    }
+    
+}
+
+extension TextAnalysisPresenterTests: Testing {
+    typealias SutAndDoubles = (
+        sut: TextAnalysisPresenter,
+        doubles: (
+            serviceSpy: TextAnalysisServiceSpy,
+            delegateSpy: TextAnalysisPresenterDelegateSpy,
+            draftSpy: DraftServiceSpy
         )
+    )
+
+    typealias DataAndResponses = (
+        data: String,
+        response: (
+            perpectiveResponse: PerspectiveResponse,
+            sentimResponse: SentimResponse
+        )
+    )
+    
+    func makeSUT() -> SutAndDoubles {
+        let serviceSpy = TextAnalysisServiceSpy()
+        let delegateSpy = TextAnalysisPresenterDelegateSpy()
+        let draftSpy = DraftServiceSpy()
+        let sut = TextAnalysisPresenter(service: serviceSpy, persistence: draftSpy)
+        sut.delegate = delegateSpy
+        return (sut, (serviceSpy, delegateSpy, draftSpy))
+    }
+
+    func generateResponse() -> DataAndResponses {
+        let text = ""
+        let perspectiveData = ResponseMaker.createPerspectiveResponse(text)
+        let sentimData = ResponseMaker.createSentimResponse(text)
+        return (text, (perspectiveData, sentimData))
     }
 }

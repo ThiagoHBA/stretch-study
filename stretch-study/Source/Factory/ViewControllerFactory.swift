@@ -26,7 +26,8 @@ extension ViewControllerFactory {
 extension ViewControllerFactory {
     private func makeTextAnalysisVC() -> UIViewController {
         let service = TextAnalysisService()
-        let presenter = TextAnalysisPresenter(service: service)
+        let persistence = DraftService()
+        let presenter = TextAnalysisPresenter(service: service, persistence: persistence)
         let viewController = TextAnalysisViewController(presenter: presenter)
         
         presenter.delegate = viewController

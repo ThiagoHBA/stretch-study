@@ -14,6 +14,7 @@ class TextAnalysisPresenterDelegateSpy: TextAnalysisPresenterDelegate {
         case startLoading
         case dismissLoading
         case showError(String, String, ErrorOrigin)
+        case displayDraft(Stretch)
         
         var description: String {
             switch self {
@@ -25,11 +26,17 @@ class TextAnalysisPresenterDelegateSpy: TextAnalysisPresenterDelegate {
                     return "startLoading"
                 case .dismissLoading:
                     return "dismissLoading"
+                case .displayDraft(let stretch):
+                    return "displayDraft: \(stretch.text)"
             }
         }
     }
     
     private(set) var receivedMessages: [Message] = []
+    
+    func displayDraft(_ draft: Stretch) {
+        receivedMessages.append(.displayDraft(draft))
+    }
     
     func startLoading() {
         receivedMessages.append(.startLoading)
