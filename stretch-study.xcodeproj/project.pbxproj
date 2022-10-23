@@ -50,6 +50,7 @@
 		00F93EEB290393560014767D /* DraftServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EEA290393560014767D /* DraftServiceTest.swift */; };
 		00F93EEF29039B1F0014767D /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EEE29039B1F0014767D /* Testing.swift */; };
 		00F93EF129039E420014767D /* FileManagerServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EF029039E420014767D /* FileManagerServiceSpy.swift */; };
+		00F93EF32904F8780014767D /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EF22904F8780014767D /* AlertPresentable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +119,7 @@
 		00F93EEA290393560014767D /* DraftServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftServiceTest.swift; sourceTree = "<group>"; };
 		00F93EEE29039B1F0014767D /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		00F93EF029039E420014767D /* FileManagerServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServiceSpy.swift; sourceTree = "<group>"; };
+		00F93EF22904F8780014767D /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 			children = (
 				00507AC628F85AB400CA12CB /* ViewCoding.swift */,
 				00F93E89290185700014767D /* EndpointProtocol.swift */,
+				00F93EF22904F8780014767D /* AlertPresentable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				00507AD828F85AB400CA12CB /* TextAnalysisViewController.swift in Sources */,
 				00507AD428F85AB400CA12CB /* TextAnalysisPresenter.swift in Sources */,
 				00F93E932901963A0014767D /* EndpointLoader.swift in Sources */,
+				00F93EF32904F8780014767D /* AlertPresentable.swift in Sources */,
 				00F93EDE29021D820014767D /* FileManagerService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

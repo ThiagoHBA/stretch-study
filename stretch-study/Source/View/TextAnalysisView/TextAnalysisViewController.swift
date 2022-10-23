@@ -32,7 +32,7 @@ class TextAnalysisViewController: UIViewController {
     }
 }
 
-extension TextAnalysisViewController: TextAnalysisPresenterDelegate {
+extension TextAnalysisViewController: TextAnalysisPresenterDelegate, AlertPresentable {
     func displayDraft(_ draft: Stretch) {
         print("Draft: \(draft.text)")
     }
@@ -41,11 +41,21 @@ extension TextAnalysisViewController: TextAnalysisPresenterDelegate {
         print("DATA: \(String(describing: entity.sentimData?.result)) and \(String(describing: entity.perspectiveData?.attributeScores.toxicity))")
     }
     
-    func startLoading() { }
+    func startLoading() {
+        self.textAnalysisView?.analysisHasStarted = true
+        self.textAnalysisView?.activityIndicator.startAnimating()
+    }
     
-    func dismissLoading() { }
+    func dismissLoading() {
+        DispatchQueue.main.async { [weak self] in
+            self?.textAnalysisView?.analysisHasStarted = false
+            self?.textAnalysisView?.activityIndicator.stopAnimating()
+        }
+    }
     
     func showError(title: String, message: String, origin: ErrorOrigin) {
-        print("Error from \(origin.rawValue): \(message)")
+        DispatchQueue.main.async { [weak self] in
+            self?.showAlert(title: title, message: message)
+        }
     }
 }

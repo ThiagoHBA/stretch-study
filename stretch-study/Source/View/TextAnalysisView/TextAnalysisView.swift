@@ -10,6 +10,22 @@ import UIKit
 
 class TextAnalysisView: UIView {
     private let presenter: TextAnalysisPresenting!
+    var analysisHasStarted: Bool = false {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                if let self = self {
+                    self.sendToAnalysisButton.isEnabled = !self.analysisHasStarted
+                }
+            }
+        }
+    }
+    
+    let activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.tintColor = .darkGray
+        return view
+    }()
     
     private let label: UILabel = {
         let label = UILabel()
@@ -25,7 +41,7 @@ class TextAnalysisView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let textViewAnalysis: UITextView = {
         let textView = UITextView()
         textView.backgroundColor = .systemGray6
@@ -37,6 +53,14 @@ class TextAnalysisView: UIView {
         textView.layer.shadowOffset = CGSize(width: -1, height: 3)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
+    }()
+    
+    private let footNote: UILabel = {
+        let label = UILabel()
+        label.text = "Only Available in english"
+        label.font = UIFont.systemFont(ofSize: UIFont.smallSystemFontSize)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private lazy var sendToAnalysisButton: UIButton = {
@@ -67,7 +91,7 @@ class TextAnalysisView: UIView {
     
     @objc func sendTextToAnalysis() {
         if let text = textViewAnalysis.text, !text.isEmpty {
-            presenter.analyseText(text, onEnd: {}) 
+            presenter.analyseText(text, onEnd: {})
         }
     }
 }
@@ -83,9 +107,16 @@ extension TextAnalysisView: ViewCoding {
         self.addSubview(textViewAnalysis)
         self.addSubview(sendToAnalysisButton)
         self.addSubview(textViewLabel)
+        self.addSubview(activityIndicator)
+        self.addSubview(footNote)
     }
     
     func setupConstraints() {
+        let activityIndicatorConstraints = [
+            activityIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            activityIndicator.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ]
+        
         let labelConstraints = [
             label.topAnchor.constraint(equalTo: self.topAnchor, constant: 150),
             label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
@@ -100,7 +131,7 @@ extension TextAnalysisView: ViewCoding {
         ]
         
         let analysisButtonConstraint = [
-            sendToAnalysisButton.topAnchor.constraint(equalTo: textViewAnalysis.bottomAnchor, constant: 26),
+            sendToAnalysisButton.topAnchor.constraint(equalTo: textViewAnalysis.bottomAnchor, constant: 45),
             sendToAnalysisButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             sendToAnalysisButton.heightAnchor.constraint(equalToConstant: 46),
             sendToAnalysisButton.widthAnchor.constraint(equalToConstant: 112)
@@ -112,10 +143,17 @@ extension TextAnalysisView: ViewCoding {
             textViewLabel.trailingAnchor.constraint(equalTo: textViewAnalysis.trailingAnchor)
         ]
         
+        let footNoteConstraints = [
+            footNote.topAnchor.constraint(equalTo: textViewAnalysis.bottomAnchor, constant: 5),
+            footNote.trailingAnchor.constraint(equalTo: textViewAnalysis.trailingAnchor, constant: -10)
+        ]
+        
         NSLayoutConstraint.activate(labelConstraints)
         NSLayoutConstraint.activate(textViewConstraints)
         NSLayoutConstraint.activate(analysisButtonConstraint)
         NSLayoutConstraint.activate(textViewLabelConstraint)
+        NSLayoutConstraint.activate(activityIndicatorConstraints)
+        NSLayoutConstraint.activate(footNoteConstraints)
     }
 }
 

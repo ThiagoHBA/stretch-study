@@ -44,7 +44,7 @@ class TextAnalysisPresenter: TextAnalysisPresenting {
             guard let self = self else { return }
             self.delegate?.dismissLoading()
             
-            if !errors.isEmpty, let requestError = errors.first {
+            if errors.count >= 2, let requestError = errors.last {
                 self.delegate?.showError(title: "Error", message: requestError.message, origin: requestError.origin)
             }
             
