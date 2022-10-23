@@ -15,7 +15,6 @@ class TextAnalysisView: UIView {
         let label = UILabel()
         label.text = "Stretch Study"
         label.font = UIFont.boldSystemFont(ofSize: 36.0)
-        label.tintColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -23,24 +22,33 @@ class TextAnalysisView: UIView {
     private let textViewLabel: UILabel = {
         let label = UILabel()
         label.text = "Put here the text you want to analyse."
-        label.tintColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private let textViewAnalysis: UITextView = {
         let textView = UITextView()
-        textView.backgroundColor = .white
-        textView.textColor = .black
+        textView.backgroundColor = .systemGray6
+        textView.layer.borderColor = UIColor.black.cgColor
+        textView.layer.borderWidth = 0.5
         textView.layer.cornerRadius = 8
+        textView.clipsToBounds = false
+        textView.layer.shadowOpacity = 0.4
+        textView.layer.shadowOffset = CGSize(width: -1, height: 3)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
     
     private lazy var sendToAnalysisButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Analyse", for: .normal)
+        button.setTitle(" Analyse", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.setTitleColor(.systemBlue, for: .normal)
+        button.tintColor = .white
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.layer.cornerRadius = 10
+        button.backgroundColor = .systemBlue
+        button.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
         button.addTarget(self, action: #selector(sendTextToAnalysis), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -67,6 +75,7 @@ class TextAnalysisView: UIView {
 extension TextAnalysisView: ViewCoding {
     func setupAditionalConfiguration() {
         self.textViewAnalysis.delegate = self
+        self.backgroundColor = .systemBackground
     }
     
     func addViewsInHierarchy() {
