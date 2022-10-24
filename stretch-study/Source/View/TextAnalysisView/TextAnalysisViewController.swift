@@ -34,15 +34,17 @@ class TextAnalysisViewController: UIViewController {
 
 extension TextAnalysisViewController: TextAnalysisPresenterDelegate, AlertPresentable {
     func displayDraft(_ draft: Stretch) {
-        print("Draft: \(draft.text)")
+        DispatchQueue.main.async {
+            self.textAnalysisView?.draft = draft.text
+        }
     }
     
     func displayData(_ entity: TextAnalysisViewEntity) {
         DispatchQueue.main.async { [weak self] in
             if let self = self {
                 let summaryVC = SummaryViewController()
+                summaryVC.configure(with: entity)
                 self.navigationController?.pushViewController(summaryVC, animated: true)
-                print("DATA: \(String(describing: entity.sentimData?.result)) and \(String(describing: entity.perspectiveData?.attributeScores.toxicity))")
             }
         }
     }
