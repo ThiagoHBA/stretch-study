@@ -32,20 +32,36 @@ class TextAnalysisViewController: UIViewController {
     }
 }
 
-extension TextAnalysisViewController: TextAnalysisPresenterDelegate {
+extension TextAnalysisViewController: TextAnalysisPresenterDelegate, AlertPresentable {
     func displayDraft(_ draft: Stretch) {
         print("Draft: \(draft.text)")
     }
     
     func displayData(_ entity: TextAnalysisViewEntity) {
-        print("DATA: \(String(describing: entity.sentimData?.result)) and \(String(describing: entity.perspectiveData?.attributeScores.toxicity))")
+        DispatchQueue.main.async { [weak self] in
+            if let self = self {
+                let summaryVC = SummaryViewController()
+                self.navigationController?.pushViewController(summaryVC, animated: true)
+                print("DATA: \(String(describing: entity.sentimData?.result)) and \(String(describing: entity.perspectiveData?.attributeScores.toxicity))")
+            }
+        }
     }
     
-    func startLoading() { }
+    func startLoading() {
+        self.textAnalysisView?.analysisHasStarted = true
+        self.textAnalysisView?.activityIndicator.startAnimating()
+    }
     
-    func dismissLoading() { }
+    func dismissLoading() {
+        DispatchQueue.main.async { [weak self] in
+            self?.textAnalysisView?.analysisHasStarted = false
+            self?.textAnalysisView?.activityIndicator.stopAnimating()
+        }
+    }
     
     func showError(title: String, message: String, origin: ErrorOrigin) {
-        print("Error from \(origin.rawValue): \(message)")
+        DispatchQueue.main.async { [weak self] in
+            self?.showAlert(title: title, message: message)
+        }
     }
 }
