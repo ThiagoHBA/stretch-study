@@ -51,6 +51,8 @@
 		00F93EEF29039B1F0014767D /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EEE29039B1F0014767D /* Testing.swift */; };
 		00F93EF129039E420014767D /* FileManagerServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EF029039E420014767D /* FileManagerServiceSpy.swift */; };
 		00F93EF32904F8780014767D /* AlertPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EF22904F8780014767D /* AlertPresentable.swift */; };
+		00F93EF82905040E0014767D /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EF72905040E0014767D /* SummaryView.swift */; };
+		00F93EFA2905042F0014767D /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F93EF92905042F0014767D /* SummaryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		00F93EEE29039B1F0014767D /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		00F93EF029039E420014767D /* FileManagerServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerServiceSpy.swift; sourceTree = "<group>"; };
 		00F93EF22904F8780014767D /* AlertPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentable.swift; sourceTree = "<group>"; };
+		00F93EF72905040E0014767D /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		00F93EF92905042F0014767D /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +289,7 @@
 		00507AC928F85AB400CA12CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00F93EF6290503FE0014767D /* SummaryView */,
 				00507ACA28F85AB400CA12CB /* TextAnalysisView */,
 			);
 			path = View;
@@ -432,6 +437,15 @@
 				00F93E8728FEEEDB0014767D /* TextAnalysisPresenterDelegateSpy.swift */,
 			);
 			path = Spy;
+			sourceTree = "<group>";
+		};
+		00F93EF6290503FE0014767D /* SummaryView */ = {
+			isa = PBXGroup;
+			children = (
+				00F93EF72905040E0014767D /* SummaryView.swift */,
+				00F93EF92905042F0014767D /* SummaryViewController.swift */,
+			);
+			path = SummaryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -606,7 +620,9 @@
 				00507ADE28F989E300CA12CB /* SentimResponse.swift in Sources */,
 				00F93EDC29021D7A0014767D /* FileManagerServicing.swift in Sources */,
 				00905F8828FD9F4900FD75B4 /* NetworkServicing.swift in Sources */,
+				00F93EF82905040E0014767D /* SummaryView.swift in Sources */,
 				00297E4828FB0C83005BE371 /* TextAnalysisPresenterDelegate.swift in Sources */,
+				00F93EFA2905042F0014767D /* SummaryViewController.swift in Sources */,
 				00507AD928F85AB400CA12CB /* TextAnalysisServicing.swift in Sources */,
 				00F93EE229022B200014767D /* DraftServicing.swift in Sources */,
 				00905F8128FD8C3700FD75B4 /* URLRequest.swift in Sources */,

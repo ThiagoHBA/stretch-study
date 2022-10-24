@@ -38,7 +38,13 @@ extension TextAnalysisViewController: TextAnalysisPresenterDelegate, AlertPresen
     }
     
     func displayData(_ entity: TextAnalysisViewEntity) {
-        print("DATA: \(String(describing: entity.sentimData?.result)) and \(String(describing: entity.perspectiveData?.attributeScores.toxicity))")
+        DispatchQueue.main.async { [weak self] in
+            if let self = self {
+                let summaryVC = SummaryViewController()
+                self.navigationController?.pushViewController(summaryVC, animated: true)
+                print("DATA: \(String(describing: entity.sentimData?.result)) and \(String(describing: entity.perspectiveData?.attributeScores.toxicity))")
+            }
+        }
     }
     
     func startLoading() {
