@@ -10,13 +10,27 @@ import UIKit
 
 class TextAnalysisView: UIView {
     private let presenter: TextAnalysisPresenting!
+    static private var defaultPlaceholderText = "Your text here!"
+    
     var analysisHasStarted: Bool = false {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 if let self = self {
                     self.sendToAnalysisButton.isEnabled = !self.analysisHasStarted
                 }
+                
             }
+        }
+    }
+    var draft: String = "" {
+        didSet {
+            if !draft.isEmpty {
+                recoverDraftButton.isHidden = false
+                changeTextViewValue(text: draft, placeholder: true)
+                return
+            }
+            recoverDraftButton.isHidden = true
+            changeTextViewValue(text: TextAnalysisView.defaultPlaceholderText)
         }
     }
     
@@ -78,6 +92,16 @@ class TextAnalysisView: UIView {
         return button
     }()
     
+    private lazy var recoverDraftButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Recover draft", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.setTitleColor(UIColor.systemBlue, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(recoverDraft), for: .touchUpInside)
+        return button
+    }()
+    
     init(frame: CGRect, presenter: TextAnalysisPresenting) {
         self.presenter = presenter
         super.init(frame: frame)
@@ -94,6 +118,23 @@ class TextAnalysisView: UIView {
             presenter.analyseText(text, onEnd: {})
         }
     }
+    
+    @objc func recoverDraft() {
+        changeTextViewValue(text: draft, placeholder: false)
+        recoverDraftButton.isHidden = true
+    }
+    
+    func changeTextViewValue(text: String, placeholder: Bool = false) {
+        if placeholder {
+            textViewAnalysis.text = text
+            textViewAnalysis.textColor = UIColor.lightGray
+            sendToAnalysisButton.isEnabled = false
+            return
+        }
+        sendToAnalysisButton.isEnabled = true
+        textViewAnalysis.text = text
+        textViewAnalysis.textColor = .black
+    }
 }
 
 extension TextAnalysisView: ViewCoding {
@@ -109,6 +150,7 @@ extension TextAnalysisView: ViewCoding {
         self.addSubview(textViewLabel)
         self.addSubview(activityIndicator)
         self.addSubview(footNote)
+        self.addSubview(recoverDraftButton)
     }
     
     func setupConstraints() {
@@ -148,12 +190,18 @@ extension TextAnalysisView: ViewCoding {
             footNote.trailingAnchor.constraint(equalTo: textViewAnalysis.trailingAnchor, constant: -10)
         ]
         
+        let recoverDraftButtonConstraints = [
+            recoverDraftButton.leadingAnchor.constraint(equalTo: textViewAnalysis.leadingAnchor, constant: 8),
+            recoverDraftButton.topAnchor.constraint(equalTo: textViewAnalysis.bottomAnchor, constant: 5)
+        ]
+        
         NSLayoutConstraint.activate(labelConstraints)
         NSLayoutConstraint.activate(textViewConstraints)
         NSLayoutConstraint.activate(analysisButtonConstraint)
         NSLayoutConstraint.activate(textViewLabelConstraint)
         NSLayoutConstraint.activate(activityIndicatorConstraints)
         NSLayoutConstraint.activate(footNoteConstraints)
+        NSLayoutConstraint.activate(recoverDraftButtonConstraints)
     }
 }
 
@@ -161,6 +209,18 @@ extension TextAnalysisView: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if let text = textView.text, !text.isEmpty {
             presenter.saveDraft(Stretch(text: text))
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == .lightGray {
+            changeTextViewValue(text: "", placeholder: false)
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            changeTextViewValue(text: TextAnalysisView.defaultPlaceholderText, placeholder: true)
         }
     }
 }

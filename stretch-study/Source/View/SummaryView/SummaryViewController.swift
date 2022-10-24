@@ -19,5 +19,8 @@ class SummaryViewController: UIViewController {
         self.summaryView = SummaryView(frame: UIScreen.main.bounds)
         self.view = self.summaryView
     }
-
+    
+    func configure(with model: TextAnalysisViewEntity) {
+        print("DATA: \(String(describing: model.sentimData?.result)) and \(String(describing: model.perspectiveData?.attributeScores.toxicity))")
+    }
 }

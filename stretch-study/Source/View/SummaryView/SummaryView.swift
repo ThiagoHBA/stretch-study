@@ -11,7 +11,7 @@ import UIKit
 class SummaryView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        self.backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
