@@ -51,8 +51,7 @@ final class TextAnalysisPresenterTests: XCTestCase {
         
         sut.analyseText(text) {
             let expectedEntity = TextAnalysisViewEntity(perspectiveData: nil, sentimData: response.sentimResponse)
-            let expectedError = ("Error", "Sorry, couldn't reach our server. 500", ErrorOrigin.perspective)
-            XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .showError(expectedError.0, expectedError.1, expectedError.2), .displayData(expectedEntity)])
+            XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .displayData(expectedEntity)])
             expectation.fulfill()
         }
         
@@ -70,8 +69,7 @@ final class TextAnalysisPresenterTests: XCTestCase {
         
         sut.analyseText(text) {
             let expectedEntity = TextAnalysisViewEntity(perspectiveData: response.perpectiveResponse, sentimData: nil)
-            let expectedError = ("Error", "Please make sure you filled in the all the required fields correctly. 400", ErrorOrigin.sentim)
-            XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .showError(expectedError.0, expectedError.1, expectedError.2), .displayData(expectedEntity)])
+            XCTAssertEqual(doubles.delegateSpy.receivedMessages, [.startLoading, .dismissLoading, .displayData(expectedEntity)])
             expectation.fulfill()
         }
         
